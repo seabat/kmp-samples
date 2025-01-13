@@ -10,7 +10,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import dev.seabat.kmp.rtdb.usecase.CreateGuidUseCase
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
+import dev.seabat.kmp.rtdb.repository.GuidRepository
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -21,16 +23,28 @@ import kmprealtimedatabasesample.composeapp.generated.resources.compose_multipla
 @Preview
 fun App() {
     MaterialTheme {
+        val guidRepository = GuidRepository(createDataStore(PlatformContext()))
+        val viewModel: AppViewModel = viewModel { AppViewModel(guidRepository) }
+        val guidState by viewModel.guid.collectAsStateWithLifecycle()
+
+        LaunchedEffect(Unit) {
+            viewModel.savaGuid("abcdefghij")
+        }
+
         var showContent by remember { mutableStateOf(false) }
-        val guid = remember { CreateGuidUseCase().invoke() }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Button(onClick = { showContent = !showContent }) {
+            Button(
+                onClick = {
+                    showContent = !showContent
+                    viewModel.loadGuid()
+                }
+            ) {
                 Text("Click me!")
             }
             AnimatedVisibility(showContent) {
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("GUID: $guid")
+                    Text("GUID: $guidState")
                 }
             }
         }
