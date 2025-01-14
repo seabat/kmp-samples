@@ -1,6 +1,8 @@
 package dev.seabat.kmp.rtdb
 
 import android.app.Application
+import com.google.firebase.Firebase
+import com.google.firebase.initialize
 
 class RtdbApplication : Application() {
 
@@ -14,5 +16,7 @@ class RtdbApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+
+        Firebase.initialize(this)
     }
 }
