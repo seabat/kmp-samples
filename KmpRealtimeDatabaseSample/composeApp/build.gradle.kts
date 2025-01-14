@@ -52,6 +52,9 @@ kotlin {
             implementation(libs.androidx.datastore.preferences.core)
 
             implementation(libs.kotlinx.atomicfu)
+
+            implementation(libs.gitlive.firebase.common)
+            implementation(libs.gitlive.firebase.database)
         }
     }
 }
