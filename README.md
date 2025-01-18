@@ -13,14 +13,13 @@ TBD
 #### 仕様
 
 アプリ初回起動時  
-<img src="KmpRealtimeDatabaseSample/docs/KmpRealtimeDatabaseSample-アプリ初回起動時.png" width = "300px">
-
+<img src="KmpRealtimeDatabaseSample/docs/first.png" width = "300px">  
 
 データ更新時  
-<img src="KmpRealtimeDatabaseSample/docs/KmpRealtimeDatabaseSample-Database更新時.png" width = "300px">
+<img src="KmpRealtimeDatabaseSample/docs/updateData.png" width = "300px">  
 
 アプリ再起動時  
-<img src="KmpRealtimeDatabaseSample/docs/KmpRealtimeDatabaseSample-アプリ再起動時.png" width = "300px">
+<img src="KmpRealtimeDatabaseSample/docs/relaunch.png" width = "300px">  
 
 
 #### Firebase Realtime Database アクセス実装 
