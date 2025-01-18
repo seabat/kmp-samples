@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import dev.seabat.kmp.rtdb.repository.GuidRepository
+import dev.seabat.kmp.rtdb.repository.RealtimeDatabaseRepository
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -24,8 +25,11 @@ import kmprealtimedatabasesample.composeapp.generated.resources.compose_multipla
 fun App() {
     MaterialTheme {
         val guidRepository = GuidRepository(createDataStore(PlatformContext()))
-        val viewModel: AppViewModel = viewModel { AppViewModel(guidRepository) }
+        val databaseRepository = RealtimeDatabaseRepository()
+        val viewModel: AppViewModel = viewModel { AppViewModel(guidRepository, databaseRepository) }
+
         val guidState by viewModel.guid.collectAsStateWithLifecycle()
+        val balanceState by viewModel.balance.collectAsStateWithLifecycle()
 
         LaunchedEffect(Unit) {
             viewModel.savaGuid("abcdefghij")
@@ -37,6 +41,7 @@ fun App() {
                 onClick = {
                     showContent = !showContent
                     viewModel.loadGuid()
+                    viewModel.readDatabase()
                 }
             ) {
                 Text("Click me!")
@@ -45,6 +50,7 @@ fun App() {
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
                     Text("GUID: $guidState")
+                    Text("Balance: $balanceState")
                 }
             }
         }
