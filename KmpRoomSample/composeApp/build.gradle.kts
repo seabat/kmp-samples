@@ -24,7 +24,11 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(libs.jetbrains.lifecycle.viewmodel)
             implementation(libs.jetbrains.lifecycle.viewmodel.compose)
+
+            // Koin
             implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
+
             implementation(projects.shared)
         }
     }
