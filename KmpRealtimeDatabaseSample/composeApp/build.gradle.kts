@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.googleServices)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
@@ -55,6 +56,8 @@ kotlin {
 
             implementation(libs.gitlive.firebase.common)
             implementation(libs.gitlive.firebase.database)
+
+            implementation(libs.kotlinx.serialization.json)
         }
     }
 }
