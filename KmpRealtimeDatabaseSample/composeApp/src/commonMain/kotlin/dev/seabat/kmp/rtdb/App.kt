@@ -39,6 +39,14 @@ fun App() {
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Button(
                 onClick = {
+                    viewModel.writeDatabase()
+                }
+            ) {
+                Text("データベースにデータを保存")
+            }
+
+            Button(
+                onClick = {
                     showContent = !showContent
                     viewModel.loadGuid()
                     viewModel.readDatabase()
@@ -46,6 +54,7 @@ fun App() {
             ) {
                 Text("Click me!")
             }
+
             AnimatedVisibility(showContent) {
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)

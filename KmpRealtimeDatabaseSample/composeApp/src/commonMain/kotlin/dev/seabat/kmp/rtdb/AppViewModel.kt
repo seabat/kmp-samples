@@ -40,4 +40,10 @@ class AppViewModel(
             }
         }
     }
+
+    fun writeDatabase() {
+        viewModelScope.launch {
+            realtimeDatabaseRepository.write()
+        }
+    }
 }
