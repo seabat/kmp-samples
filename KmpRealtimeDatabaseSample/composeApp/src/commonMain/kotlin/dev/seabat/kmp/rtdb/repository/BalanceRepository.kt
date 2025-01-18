@@ -6,21 +6,21 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.coroutines.flow.first
 
-class GuidRepository(
+class BalanceRepository(
     private val dataStore: DataStore<Preferences>
 ) {
 
-    private val guidKey = stringPreferencesKey("guid")
+    private val balanceKey = stringPreferencesKey("balance")
 
-    suspend fun save(guid: String) {
+    suspend fun save(balance: String) {
         dataStore.edit {
-            it[guidKey] = guid
+            it[balanceKey] = balance
         }
     }
 
     suspend fun load(): String {
         val preferences = dataStore.data.first()
-        val guid = preferences[guidKey] ?: ""
-        return guid
+        val balance = preferences[balanceKey] ?: ""
+        return balance
     }
 }
