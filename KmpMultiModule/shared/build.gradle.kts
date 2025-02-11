@@ -40,6 +40,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.ktor.client.android)
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            implementation(libs.koin.android)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)

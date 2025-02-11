@@ -51,7 +51,7 @@ extension ContentView {
         private var didGrep = false
         
         init() {
-            viewModel = GreetingSharedViewModel()
+            viewModel = KoinHelperKt.getGreetingSharedViewModel()
             loadRocketLaunchInfoUseCase = KoinHelperKt.getLoadRocketLaunchInfoUseCase()
             grepUseCase = KoinHelperKt.getGrepUseCase()
 

@@ -43,10 +43,6 @@ fun initKoin() {
 }
 
 // inject を実行するクラスを定義する
-private val viewModelModule = module {
-    single { GreetingSharedViewModel() }
-}
-
 private val useCaseModule = module {
     single<CreatePhrasesUseCaseContract> { CreatePhrasesUseCase(get()) }
     single<GrepUseCaseContract> { GrepUseCase() }
