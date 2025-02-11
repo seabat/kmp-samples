@@ -6,6 +6,8 @@ import dev.seabat.kmp.multimodule.shared.source.PlatformSource
 import dev.seabat.kmp.multimodule.shared.source.PlatformSourceContract
 import dev.seabat.kmp.multimodule.shared.usecase.CreatePhrasesUseCase
 import dev.seabat.kmp.multimodule.shared.usecase.CreatePhrasesUseCaseContract
+import dev.seabat.kmp.multimodule.shared.usecase.LoadRocketLaunchInfoUseCase
+import dev.seabat.kmp.multimodule.shared.usecase.LoadRocketLaunchInfoUseCaseContract
 import dev.seabat.kmp.multimodule.shared.viewmodel.GreetingSharedViewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
@@ -43,6 +45,7 @@ private val viewModelModule = module {
 
 private val useCaseModule = module {
     single<CreatePhrasesUseCaseContract> { CreatePhrasesUseCase(get()) }
+    single<LoadRocketLaunchInfoUseCaseContract> { LoadRocketLaunchInfoUseCase() }
 }
 
 private val repositoryModule = module {

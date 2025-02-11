@@ -1,12 +1,12 @@
-package dev.seabat.kmp.multimodule.shared
+package dev.seabat.kmp.multimodule.shared.usecase
 
 import RocketComponent
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class RocketLaunchShared {
+class LoadRocketLaunchInfoUseCase : LoadRocketLaunchInfoUseCaseContract{
     private val rocketComponent by lazy { RocketComponent() }
-    fun getLaunchPhraseFlow(): Flow<String> = flow {
+    override fun getLaunchPhraseFlow(): Flow<String> = flow {
         emit(rocketComponent.launchPhrase())
     }
 }
