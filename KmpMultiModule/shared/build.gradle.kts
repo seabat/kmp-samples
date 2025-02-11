@@ -25,9 +25,8 @@ kotlin {
                 baseName = "Shared" // Umbrella Framework の名前
                 isStatic = true
 
-                // Umbrella Framework に含めるモジュールを指定
+                // Accessible by the iOS app
                 export(project(":shared:domain"))
-                export(project(":shared:data"))
             }
         }
     }
@@ -36,9 +35,11 @@ kotlin {
         commonMain.dependencies {
             // Accessible by the native app
             api(project(":shared:domain"))
-            // Accessible only in the KMM part
-            api(project(":shared:data"))
 
+            // Accessible only in the KMM part
+            implementation(project(":shared:data"))
+
+            // share モジュールのプログラムから参照するライブラリ
             implementation(libs.koin.core)
         }
     }
