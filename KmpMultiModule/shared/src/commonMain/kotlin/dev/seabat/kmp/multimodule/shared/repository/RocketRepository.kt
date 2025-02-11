@@ -1,3 +1,5 @@
+package dev.seabat.kmp.multimodule.shared.repository
+
 import dev.seabat.kmp.multimodule.shared.data.RocketLaunch
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -9,7 +11,7 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import kotlinx.serialization.json.Json
 
-class RocketComponent {
+class RocketRepository : RocketRepositoryContract {
     private val httpClient = HttpClient {
         install(ContentNegotiation) {
             json(
@@ -32,7 +34,7 @@ class RocketComponent {
         return "${date.month} ${date.dayOfMonth}, ${date.year}"
     }
 
-    suspend fun launchPhrase(): String =
+    override suspend fun launchPhrase(): String =
         try {
             "The last successful launch was on ${getDateOfLastSuccessfulLaunch()} 🚀"
         } catch (e: Exception) {
