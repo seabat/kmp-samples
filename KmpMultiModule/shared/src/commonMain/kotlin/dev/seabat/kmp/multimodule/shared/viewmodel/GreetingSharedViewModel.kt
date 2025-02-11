@@ -8,10 +8,9 @@ import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class GreetingSharedViewModel :
-    CoroutineViewModel(),
-    KoinComponent {
-    private val createPhrasesUseCase: CreatePhrasesUseCaseContract by inject()
+class GreetingSharedViewModel(
+    private val createPhrasesUseCase: CreatePhrasesUseCaseContract
+) : CoroutineViewModel() {
 
     private val _phrases = MutableStateFlow<List<String>>(emptyList())
     val phrases: StateFlow<List<String>> = _phrases

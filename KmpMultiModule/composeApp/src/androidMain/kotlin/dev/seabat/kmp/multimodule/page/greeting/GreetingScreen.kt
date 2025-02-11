@@ -22,7 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
+import org.koin.androidx.compose.koinViewModel
 import dev.seabat.kmp.multimodule.shared.viewmodel.GreetingSharedViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -34,7 +34,7 @@ fun GreetingScreen(
     goBack: () -> Unit = {}
 ) {
 
-    val greetingSharedViewModel: GreetingSharedViewModel = viewModel()
+    val greetingSharedViewModel: GreetingSharedViewModel = koinViewModel()
     val phrases by greetingSharedViewModel.phrases.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
