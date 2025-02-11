@@ -64,7 +64,7 @@ extension ContentView {
             guard !self.didGrep else { return } // 初回表示時のみ実行
             self.didGrep = true
             
-            grep(
+            GrepUseCase().invoke(
                 lines: ["123 abc", "abc 123", "123 ABC", "ABC 123"],
                 pattern: String("[A-Z]+"),
                 action: {(result: String) -> Void in

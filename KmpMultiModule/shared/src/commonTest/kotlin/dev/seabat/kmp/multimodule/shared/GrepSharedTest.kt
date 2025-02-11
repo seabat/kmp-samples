@@ -2,6 +2,7 @@
 
 package dev.seabat.kmp.multimodule.shared
 
+import dev.seabat.kmp.multimodule.shared.usecase.grep
 import kotlin.test.Test
 import kotlin.test.assertContains
 import kotlin.test.assertEquals
