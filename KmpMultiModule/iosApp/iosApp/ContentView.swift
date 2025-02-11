@@ -41,6 +41,8 @@ extension ContentView {
     @MainActor
     class ViewModel: ObservableObject {
         let viewModel: GreetingSharedViewModel
+        let loadRocketLaunchInfoUseCase: LoadRocketLaunchInfoUseCaseContract
+
         @Published var rocketLaunchPhrase: String = ""
         @Published var phrases:[String] = []
 
@@ -49,13 +51,14 @@ extension ContentView {
         
         init() {
             viewModel = GreetingSharedViewModel()
+            loadRocketLaunchInfoUseCase = KoinHelperKt.getLoadRocketLaunchInfoUseCase()
             viewModel.observePhrases { phrases in
                 self.phrases = phrases
             }
         }
         
         func startObserving() async {
-            for await phrase in LoadRocketLaunchInfoUseCase().getLaunchPhraseFlow() {
+            for await phrase in loadRocketLaunchInfoUseCase.invoke() {
                 self.rocketLaunchPhrase = phrase
             }
         }

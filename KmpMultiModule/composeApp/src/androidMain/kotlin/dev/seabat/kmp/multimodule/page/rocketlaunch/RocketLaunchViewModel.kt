@@ -19,7 +19,7 @@ class RocketLaunchViewModel : ViewModel(), KoinComponent {
 
     init {
         viewModelScope.launch {
-            loadRocketLaunchInfoUseCase.getLaunchPhraseFlow().collect { phrase ->
+            loadRocketLaunchInfoUseCase().collect { phrase ->
                 _rocketLaunchPhrase.update {
                     phrase
                 }
