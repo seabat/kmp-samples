@@ -55,7 +55,7 @@ extension ContentView {
         }
         
         func startObserving() async {
-            for await phrase in RocketLaunchShared().getLaunchPhraseFlow() {
+            for await phrase in LoadRocketLaunchInfoUseCase().getLaunchPhraseFlow() {
                 self.rocketLaunchPhrase = phrase
             }
         }
