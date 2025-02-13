@@ -29,4 +29,9 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
-include(":shared")
+
+include(":shared:domain")
+project(":shared:domain").projectDir = File("$rootDir/shared-domain")
+
+include(":shared:data")
+project(":shared:data").projectDir = File("$rootDir/shared-data")
