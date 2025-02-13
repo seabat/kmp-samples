@@ -22,7 +22,7 @@ kotlin {
     ).forEach {
         it.binaries {
             framework {
-                baseName = "Shared" // Umbrella Framework の名前
+                baseName = "Shared" // Umbrella モジュールの名前
                 isStatic = true
 
                 // Accessible by the iOS app
@@ -36,10 +36,9 @@ kotlin {
             // Accessible by the native app
             api(project(":shared:domain"))
 
-            // Accessible only in the KMM part
+            // Accessible only in the KMP part
             implementation(project(":shared:data"))
 
-            // share モジュールのプログラムから参照するライブラリ
             implementation(libs.koin.core)
         }
     }
