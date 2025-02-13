@@ -30,8 +30,10 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtime.compose.android)
             implementation(libs.androidx.navigation.compose)
             implementation(libs.kotlinx.serialization.json)
-            implementation(libs.androidx.core.splashscreen)
-            implementation(projects.shared)
+            implementation (libs.androidx.core.splashscreen)
+
+            implementation(projects.shared.domain)
+            implementation(projects.shared.data)
         }
     }
 }
