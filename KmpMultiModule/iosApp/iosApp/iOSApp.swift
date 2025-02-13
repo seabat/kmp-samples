@@ -10,6 +10,6 @@ struct iOSApp: App {
     }
     
     init() {
-        CommonModuleKt.doInitKoin()
+        CommonModuleKt.doInitIosKoin()
     }
 }

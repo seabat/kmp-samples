@@ -11,28 +11,8 @@ import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
 
-// for Android
-fun initAndroidDomainKoin() = startKoin {
-    modules(
-        useCaseModule,
-        viewModelModule
-    )
-}
-
-// for iOS
-// Kotlin の関数は  [ファイル名]Kt.do[関数名]() として Swift から呼び出す。
-// CommonModuleKt.doInitKoin()
-fun initIosDomainKoin() {
-    startKoin {
-        modules(
-            useCaseModule,
-            viewModelModule
-        )
-    }
-}
-
 // inject を実行するクラスを定義する
-private val useCaseModule = module {
+val useCaseModule = module {
     single<CreatePhrasesUseCaseContract> { CreatePhrasesUseCase(get()) }
     single<GrepUseCaseContract> { GrepUseCase() }
     single<LoadRocketLaunchInfoUseCaseContract> { LoadRocketLaunchInfoUseCase(get()) }

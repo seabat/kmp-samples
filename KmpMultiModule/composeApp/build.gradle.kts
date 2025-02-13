@@ -32,8 +32,7 @@ kotlin {
             implementation(libs.kotlinx.serialization.json)
             implementation (libs.androidx.core.splashscreen)
 
-            implementation(projects.shared.domain)
-            implementation(projects.shared.data)
+            implementation(projects.shared)
         }
     }
 }
