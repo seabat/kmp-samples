@@ -2,13 +2,22 @@
 
 Kotlin MultiPlatform のサンプル集
 
-## KmpRoomSample
+## Kmp Room Sample
 
 TBD
 
-## KmpRealtimeDatabaseSample
+
+## Kmp Realtime Database Sample
 
 [Firebase Realtime Database](https://firebase.google.com/docs/database?hl=ja) を扱うサンプルプログラム。
+
+#### 構成
+
+<img src="KmpRealtimeDatabaseSample/docs/architecture.png" width = "300px">  
+  
+
+* UI は [Compose Multiplatform](https://www.jetbrains.com/ja-jp/compose-multiplatform/) を使用。
+* Firebase Realtime Databa へのアクセスは [firebase-kotlin-sdk](https://github.com/GitLiveApp/firebase-kotlin-sdk/tree/master/firebase-database) を使用。
 
 #### 仕様
 
@@ -58,3 +67,15 @@ class RealtimeDatabaseRepository {
 #### デモ
 
 <img src="KmpRealtimeDatabaseSample/docs/KmpRealtimeDatabaseSample.gif" width = "350px">
+
+## Kmp Multi Module Sample
+
+Kotlin Multiplatform の shared モジュールをマルチモジュール化したい際に参考になるリポジトリ。
+
+### 構成
+
+ViewModel 層、ドメイン層、データ層をそれぞれ Android、iOS の両 OS から利用できるモジュールに分割する。
+
+<img src="KmpMultiModule/docs/module.png" width="300">
+
+ポイントは Android、iOS の両 OS から依存するモジュールは一つだけに Umbrella モジュールを作ること。Umbrella モジュールを作る必要性については [ここ](https://santimattius.github.io/kmp-for-mobile-native-developers-book/#179504e6-f752-8099-8fa7-e8df8e7c661f)を参照されたい。
