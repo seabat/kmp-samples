@@ -5,8 +5,6 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinter)
-    alias(libs.plugins.kotlinSerialization)
-    id("co.touchlab.skie") version "0.8.4"
 }
 
 kotlin {
@@ -32,18 +30,13 @@ kotlin {
         commonMain.dependencies {
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.ktor.client.core)
-            implementation(libs.ktor.client.content.negotiation)
-            implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.koin.core)
         }
         androidMain.dependencies {
-            implementation(libs.ktor.client.android)
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.koin.android)
         }
         iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
