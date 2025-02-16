@@ -21,18 +21,20 @@ kotlin {
         iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "SharedDomain"
+            baseName = "SharedViewModel"
             isStatic = true
         }
     }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(libs.kotlinx.datetime)
+            implementation(projects.shared.domain)
+
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.koin.core)
         }
         androidMain.dependencies {
+            implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.koin.android)
         }
         iosMain.dependencies {
@@ -45,7 +47,7 @@ kotlin {
 }
 
 android {
-    namespace = "dev.seabat.kmp.multimodule.domain"
+    namespace = "dev.seabat.kmp.multimodule.viewmodel"
     compileSdk =
         libs.versions.android.compileSdk
             .get()
