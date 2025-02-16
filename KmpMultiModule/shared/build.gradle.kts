@@ -39,6 +39,7 @@ kotlin {
             // Accessible only in the KMP part
             implementation(project(":shared:data"))
 
+            // share モジュールのプログラムから参照するライブラリ
             implementation(libs.koin.core)
         }
     }
