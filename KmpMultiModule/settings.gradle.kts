@@ -32,6 +32,9 @@ include(":composeApp")
 
 include(":shared")
 
+include(":shared:viewmodel")
+project(":shared:viewmodel").projectDir = File("$rootDir/shared-viewmodel")
+
 include(":shared:domain")
 project(":shared:domain").projectDir = File("$rootDir/shared-domain")
 
