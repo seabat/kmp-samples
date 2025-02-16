@@ -26,6 +26,7 @@ kotlin {
                 isStatic = true
 
                 // Accessible by the iOS app
+                export(project(":shared:viewmodel"))
                 export(project(":shared:domain"))
             }
         }
@@ -34,6 +35,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             // Accessible by the native app
+            api(project(":shared:viewmodel"))
             api(project(":shared:domain"))
 
             // Accessible only in the KMP part
