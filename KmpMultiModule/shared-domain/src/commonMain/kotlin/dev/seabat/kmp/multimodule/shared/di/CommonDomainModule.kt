@@ -6,9 +6,6 @@ import dev.seabat.kmp.multimodule.shared.usecase.GrepUseCase
 import dev.seabat.kmp.multimodule.shared.usecase.GrepUseCaseContract
 import dev.seabat.kmp.multimodule.shared.usecase.LoadRocketLaunchInfoUseCase
 import dev.seabat.kmp.multimodule.shared.usecase.LoadRocketLaunchInfoUseCaseContract
-import dev.seabat.kmp.multimodule.shared.viewmodel.GreetingSharedViewModel
-import org.koin.core.context.startKoin
-import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
 
 // inject を実行するクラスを定義する

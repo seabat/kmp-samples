@@ -22,8 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import org.koin.androidx.compose.koinViewModel
 import dev.seabat.kmp.multimodule.shared.viewmodel.GreetingSharedViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,7 +33,6 @@ fun GreetingScreen(
     id: Int = 0,
     goBack: () -> Unit = {}
 ) {
-
     val greetingSharedViewModel: GreetingSharedViewModel = koinViewModel()
     val phrases by greetingSharedViewModel.phrases.collectAsStateWithLifecycle()
 
@@ -68,7 +67,7 @@ fun GreetingScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Inside Greeting Screen, ${name}, $id")
+            Text(text = "Inside Greeting Screen, $name, $id")
             HorizontalDivider()
             phrases.forEach { phrase ->
                 Text(phrase)
