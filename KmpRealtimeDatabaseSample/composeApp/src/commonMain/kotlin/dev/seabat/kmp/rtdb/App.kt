@@ -22,8 +22,8 @@ fun App() {
         ) {
             composable<Login> {
                 LoginScreen(
-                    goToDatabaseObservation = { token, userId ->
-                        navController.navigate(DatabaseObservation(token = token, userId = userId))
+                    goToDatabaseObservation = { userId, guid, token ->
+                        navController.navigate(DatabaseObservation(token = token, userId = userId, guid = guid))
                     },
                 )
             }
@@ -32,6 +32,7 @@ fun App() {
                 DatabaseObservationScreen(
                     token = args.token,
                     userId = args.userId,
+                    guid = args.guid,
                     goBack = {
                         navController.popBackStack()
                     }
@@ -47,5 +48,6 @@ object Login
 @Serializable
 data class DatabaseObservation(
     val token: String,
-    val userId: String
+    val userId: String,
+    val guid: String
 )

@@ -12,6 +12,7 @@ interface FetchRequestBody {
 interface CreateRequestBody {
   data: {
     accountId: string
+    guid: string
     balance: number
   }
 }
@@ -54,21 +55,25 @@ exports.createUserRecord = onRequest(
   async (request, response) => {
     const body = request.body as CreateRequestBody
 
-    logger.log(`accountId: ${body.data.accountId}, balance: ${body.data.balance}`)
+    logger.log(`accountId: ${body.data.accountId}, guid: ${body.data.guid}, balance: ${body.data.balance}`)
 
-    if (typeof body?.data?.accountId !== "string" || typeof body?.data?.balance !== "number") {
+    if (
+      typeof body?.data?.accountId !== "string" ||
+      typeof body?.data?.guid !== "string" ||
+      typeof body?.data?.balance !== "number"
+    ) {
       console.log("Invalid request body")
       response.status(400).send({
-        error: "accountId must be a string and balance must be a number"
+        error: "accountId and guid must be strings, and balance must be a number"
       })
       return
     }
 
     try {
-      await admin.database().ref(`users/${body.data.accountId}`).set({
+      await admin.database().ref(`users/${body.data.accountId}/${body.data.guid}`).set({
         balance: body.data.balance
       })
-      response.status(201).send({ message: "User record created successfully" }) // 201 Created を使用
+      response.status(201).send({ message: "User record created successfully" })
     } catch (error) {
       console.error("Error creating user record:", error)
       response.status(500).send({ error: "Failed to create user record" })

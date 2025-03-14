@@ -19,6 +19,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun DatabaseObservationScreen(
     token: String,
     userId: String,
+    guid: String,
     goBack: () -> Boolean,
     viewModel: DatabaseObservationViewModel = viewModel()
 ) {
@@ -27,7 +28,7 @@ fun DatabaseObservationScreen(
         val errorMessageState by viewModel.errorMessage.collectAsStateWithLifecycle()
 
         LaunchedEffect(Unit) {
-            viewModel.setupDatabase(token = token, userId = userId)
+            viewModel.setupDatabase(token = token, userId = userId, guid = guid)
         }
 
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {

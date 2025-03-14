@@ -1,19 +1,8 @@
 package dev.seabat.kmp.rtdb.screen
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -23,11 +12,12 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun LoginScreen(
-    goToDatabaseObservation: (String, String) -> Unit,
+    goToDatabaseObservation: (userId: String, guid: String, token: String) -> Unit,
     loginViewModel: LoginViewModel = viewModel(),
 ) {
     var userId by remember { mutableStateOf("") }
-    val token by loginViewModel.customToken.collectAsStateWithLifecycle()
+    val tokenState by loginViewModel.customToken.collectAsStateWithLifecycle()
+    val guidState by loginViewModel.guid.collectAsStateWithLifecycle()
 
     Column(
         modifier = Modifier
@@ -37,28 +27,40 @@ fun LoginScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TextField(
-            enabled = token.isEmpty(),
+            enabled = tokenState.isEmpty(),
             value = userId,
             onValueChange = { userId = it },
             label = { Text("ユーザーID") }
         )
+        Spacer(modifier = Modifier.height(8.dp))
+
+        if (guidState.isEmpty()) {
+            Button(
+                enabled = tokenState.isEmpty(),
+                onClick = { loginViewModel.loadGuid() }
+            ) {
+                Text("GUID生成")
+            }
+        }
+        Text(guidState)
+
         Spacer(modifier = Modifier.height(16.dp))
         Button(
-            enabled = token.isEmpty(),
+            enabled = tokenState.isEmpty() && userId.isNotEmpty() && guidState.isNotEmpty(),
             onClick = {
-                loginViewModel.fetchCustomToken(userId)
+                loginViewModel.fetchCustomToken(userId = userId)
             }
         ) {
             Text("トークンを取得")
         }
         Spacer(modifier = Modifier.height(16.dp))
-        if (token.isNotEmpty()) {
+        if (tokenState.isNotEmpty()) {
             Column {
-                Text("取得したトークン: $token")
+                Text("取得したトークン: $tokenState")
                 Button(
                     onClick = {
-                        goToDatabaseObservation(token, userId)
-                        loginViewModel.clearToken()
+                        goToDatabaseObservation(userId, guidState, tokenState)
+                        loginViewModel.clearScreen()
                     }
                 ) {
                     Text("ホーム画面に遷移")
@@ -72,7 +74,7 @@ fun LoginScreen(
 @Composable
 fun LoginScreenPreview() {
     LoginScreen(
-        goToDatabaseObservation = { _, _ ->
+        goToDatabaseObservation = { _, _, _ ->
         // Do nothing
         }
     )
