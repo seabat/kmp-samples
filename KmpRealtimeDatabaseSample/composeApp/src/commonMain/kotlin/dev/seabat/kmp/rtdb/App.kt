@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import dev.seabat.kmp.rtdb.screen.DatabaseObservationScreen
+import dev.seabat.kmp.rtdb.screen.InitScreen
 import dev.seabat.kmp.rtdb.screen.LoginScreen
 import kotlinx.serialization.Serializable
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -18,10 +19,19 @@ fun App() {
         val navController = rememberNavController()
         NavHost(
             navController = navController,
-            startDestination = Login
+            startDestination = Init
         ) {
+            composable<Init> {
+                InitScreen(
+                    goToLogin = { newUserId, newGuid ->
+                        navController.navigate(Login(newUserId = newUserId, newGuid = newGuid))
+                    },
+                )
+            }
             composable<Login> {
                 LoginScreen(
+                    newUserId = it.toRoute<Login>().newUserId,
+                    newGuid = it.toRoute<Login>().newGuid,
                     goToDatabaseObservation = { userId, guid, token ->
                         navController.navigate(DatabaseObservation(token = token, userId = userId, guid = guid))
                     },
@@ -43,8 +53,13 @@ fun App() {
 }
 
 @Serializable
-object Login
+object Init
 
+@Serializable
+data class Login(
+    val newUserId: Boolean,
+    val newGuid: Boolean
+)
 @Serializable
 data class DatabaseObservation(
     val token: String,

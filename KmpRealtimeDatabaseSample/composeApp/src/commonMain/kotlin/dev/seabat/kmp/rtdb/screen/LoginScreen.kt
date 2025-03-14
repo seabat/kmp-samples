@@ -13,11 +13,22 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 fun LoginScreen(
     goToDatabaseObservation: (userId: String, guid: String, token: String) -> Unit,
-    loginViewModel: LoginViewModel = viewModel(),
+    viewModel: LoginViewModel = viewModel(),
+    newUserId: Boolean,
+    newGuid: Boolean,
 ) {
-    var userId by remember { mutableStateOf("") }
-    val tokenState by loginViewModel.customToken.collectAsStateWithLifecycle()
-    val guidState by loginViewModel.guid.collectAsStateWithLifecycle()
+    val tokenState by viewModel.customToken.collectAsStateWithLifecycle()
+    val guidState by viewModel.guid.collectAsStateWithLifecycle()
+    val userIdState by viewModel.userId.collectAsStateWithLifecycle()
+
+    LaunchedEffect(Unit) {
+        if (!newUserId) {
+            viewModel.loadUserId()
+        }
+        if (!newGuid) {
+            viewModel.loadGuid()
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -27,17 +38,21 @@ fun LoginScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         TextField(
-            enabled = tokenState.isEmpty(),
-            value = userId,
-            onValueChange = { userId = it },
-            label = { Text("ユーザーID") }
+            enabled = tokenState.isEmpty() && newUserId,
+            value = userIdState,
+            onValueChange = { viewModel.updateUserId(it) },
+            label = {
+                Text("ユーザーID")
+            }
         )
         Spacer(modifier = Modifier.height(8.dp))
 
         if (guidState.isEmpty()) {
             Button(
                 enabled = tokenState.isEmpty(),
-                onClick = { loginViewModel.loadGuid() }
+                onClick = {
+                    viewModel.createAndSaveGuid()
+                }
             ) {
                 Text("GUID生成")
             }
@@ -46,9 +61,10 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
         Button(
-            enabled = tokenState.isEmpty() && userId.isNotEmpty() && guidState.isNotEmpty(),
+            enabled = tokenState.isEmpty() && userIdState.isNotEmpty() && guidState.isNotEmpty(),
             onClick = {
-                loginViewModel.fetchCustomToken(userId = userId)
+                viewModel.fetchCustomToken(userId = userIdState, createFlag = newUserId || newGuid)
+                viewModel.saveUserId(userIdState)
             }
         ) {
             Text("トークンを取得")
@@ -59,8 +75,8 @@ fun LoginScreen(
                 Text("取得したトークン: $tokenState")
                 Button(
                     onClick = {
-                        goToDatabaseObservation(userId, guidState, tokenState)
-                        loginViewModel.clearScreen()
+                        goToDatabaseObservation(userIdState, guidState, tokenState)
+                        viewModel.clearScreen()
                     }
                 ) {
                     Text("ホーム画面に遷移")
@@ -76,6 +92,8 @@ fun LoginScreenPreview() {
     LoginScreen(
         goToDatabaseObservation = { _, _, _ ->
         // Do nothing
-        }
+        },
+        newUserId = true,
+        newGuid = true
     )
 }

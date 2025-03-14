@@ -2,33 +2,13 @@ package dev.seabat.kmp.rtdb.repository
 
 import dev.gitlive.firebase.Firebase
 import io.ktor.client.*
-import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.client.request.*
-import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import dev.gitlive.firebase.auth.FirebaseAuth
-import dev.gitlive.firebase.auth.FirebaseUser
 import dev.gitlive.firebase.auth.auth
-import kotlinx.serialization.Serializable
+import dev.seabat.kmp.rtdb.repository.createuserrecord.postCreateUserRecord
+import dev.seabat.kmp.rtdb.repository.fetchcustomtoken.postFetchCustomToken
 
-// Cloud Functions の URL を設定
-private const val CLOUD_FUNCTIONS_URL = "https://fetchcustomtoken-36vfxhfxta-dt.a.run.app"
-
-// リクエストボディのデータクラスを定義
-@Serializable
-data class RequestBody(val data: Data)
-
-@Serializable
-data class Data(val accountId: String)
-
-// レスポンスボディのデータクラスを定義
-@Serializable
-data class ResponseBody(val data: TokenData)
-
-@Serializable
-data class TokenData(val customToken: String)
 
 class FirebaseAuthRepository {
 
@@ -46,14 +26,21 @@ class FirebaseAuthRepository {
     // Cloud Functions を呼び出してカスタムトークンを取得する関数
     suspend fun fetchCustomToken(userId: String): String {
         return try {
-            val response: ResponseBody = client.post(CLOUD_FUNCTIONS_URL) {
-                contentType(ContentType.Application.Json)
-                setBody(RequestBody(Data(userId)))
-            }.body()
+            val response = postFetchCustomToken(client, userId)
             response.data.customToken
         } catch (e: Exception) {
             e.printStackTrace()
             "トークンの取得に失敗しました"
+        }
+    }
+
+    suspend fun createUserRecord(userId: String, guid: String, balance: Long = 0L): String {
+        return try {
+            val response = postCreateUserRecord(client, userId, guid, balance)
+            response.message
+        } catch (e: Exception) {
+            e.printStackTrace()
+            "レコード作成に失敗しました"
         }
     }
 
