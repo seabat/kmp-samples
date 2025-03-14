@@ -6,12 +6,12 @@ import dev.seabat.kmp.rtdb.repository.User
 class RegisterDatabaseEventUseCase(
     private val realtimeDatabaseRepository: RealtimeDatabaseRepository
 ) {
-    suspend operator fun invoke(id: String, onCompleted: suspend (String) -> Unit) {
-        realtimeDatabaseRepository.readUser(id).collect { dataSnapshot ->
+    suspend operator fun invoke(userId: String, onCompleted: suspend (String) -> Unit) {
+        realtimeDatabaseRepository.readUser(userId).collect { dataSnapshot ->
             if (dataSnapshot.value == null) {
-                realtimeDatabaseRepository.writeUser(id, User(balance = 0))
+                realtimeDatabaseRepository.writeUser(userId, User(balance = 0))
             }
-            onCompleted(id)
+            onCompleted(userId)
         }
     }
 }

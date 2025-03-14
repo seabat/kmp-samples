@@ -21,6 +21,8 @@ googleServices = "4.4.2"
 junit = "4.13.2"
 kotlin = "2.1.0"
 kotlinxSerializationJson = "1.7.3"
+ktorClientCore = "2.3.7"
+navigationCompose = "2.8.0-alpha10"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -44,9 +46,18 @@ firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "fir
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 gitlive-firebase-common = { module = "dev.gitlive:firebase-common", version.ref = "gitliveFirebase" }
 gitlive-firebase-database = { module = "dev.gitlive:firebase-database", version.ref = "gitliveFirebase" }
+gitlive-firebase-auth = { module = "dev.gitlive:firebase-auth", version.ref = "gitliveFirebase" }
 
 kotlinx-atomicfu = { module = "org.jetbrains.kotlinx:atomicfu", version.ref = "atomicfu" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
+
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktorClientCore" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientCore" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCore" }
+ktor-client-darwin= { module = "io.ktor:ktor-client-darwin", version.ref = "ktorClientCore"}
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorClientCore" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

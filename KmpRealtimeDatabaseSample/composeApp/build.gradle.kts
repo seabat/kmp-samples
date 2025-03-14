@@ -37,6 +37,8 @@ kotlin {
             implementation(libs.androidx.activity.compose)
             implementation(project.dependencies.platform(libs.firebase.bom))
             implementation(libs.firebase.analytics)
+
+            implementation(libs.ktor.client.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -48,6 +50,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.navigation.compose)
 
             implementation(libs.androidx.datastore.core.okio)
             implementation(libs.androidx.datastore.preferences.core)
@@ -56,8 +59,16 @@ kotlin {
 
             implementation(libs.gitlive.firebase.common)
             implementation(libs.gitlive.firebase.database)
+            implementation(libs.gitlive.firebase.auth)
+
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
 
             implementation(libs.kotlinx.serialization.json)
+        }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
 }

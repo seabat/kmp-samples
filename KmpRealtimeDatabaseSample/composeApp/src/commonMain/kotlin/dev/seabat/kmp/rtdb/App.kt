@@ -1,32 +1,51 @@
 package dev.seabat.kmp.rtdb
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import dev.seabat.kmp.rtdb.screen.DatabaseObservationScreen
+import dev.seabat.kmp.rtdb.screen.LoginScreen
+import kotlinx.serialization.Serializable
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
-        val viewModel: AppViewModel = viewModel()
-
-        val balanceState by viewModel.balance.collectAsStateWithLifecycle()
-
-        LaunchedEffect(Unit) {
-            viewModel.setupDatabase()
-        }
-
-        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("残高 ${balanceState}円")
+        val navController = rememberNavController()
+        NavHost(
+            navController = navController,
+            startDestination = Login
+        ) {
+            composable<Login> {
+                LoginScreen(
+                    goToDatabaseObservation = { token, userId ->
+                        navController.navigate(DatabaseObservation(token = token, userId = userId))
+                    },
+                )
+            }
+            composable<DatabaseObservation> {
+                val args = it.toRoute<DatabaseObservation>()
+                DatabaseObservationScreen(
+                    token = args.token,
+                    userId = args.userId,
+                    goBack = {
+                        navController.popBackStack()
+                    }
+                )
+            }
         }
     }
 }
+
+@Serializable
+object Login
+
+@Serializable
+data class DatabaseObservation(
+    val token: String,
+    val userId: String
+)

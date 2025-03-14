@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "node18",
+    "moduleResolution": "nodenext",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2020",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}
