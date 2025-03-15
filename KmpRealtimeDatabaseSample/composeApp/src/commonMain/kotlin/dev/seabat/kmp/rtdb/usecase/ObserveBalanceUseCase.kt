@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 class ObserveBalanceUseCase(
     private val realtimeDatabaseRepository: RealtimeDatabaseRepository
 ) {
-    operator fun invoke(id: String): Flow<DataSnapshot> {
-        return realtimeDatabaseRepository.readBalance(id)
+    operator fun invoke(userId: String, guid: String): Flow<DataSnapshot> {
+        return realtimeDatabaseRepository.readBalance(userId, guid)
     }
 }

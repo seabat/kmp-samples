@@ -7,22 +7,9 @@ import kotlinx.coroutines.flow.Flow
 
 class RealtimeDatabaseRepository {
 
-    fun readUser(id: String): Flow<DataSnapshot> {
+    fun readBalance(userId: String, guid: String): Flow<DataSnapshot> {
         val database = Firebase.database
-        val ref = database.reference("users/$id")
+        val ref = database.reference("users/$userId/$guid/balance")
         return ref.valueEvents
-    }
-
-    fun readBalance(id: String): Flow<DataSnapshot> {
-        val database = Firebase.database
-        val ref = database.reference("users/$id/balance")
-        return ref.valueEvents
-    }
-
-    suspend fun writeUser(id: String, user: User) {
-        val database = Firebase.database
-        val ref = database.reference("users")
-        val childRef = ref.child(id)
-        childRef.setValue(user)
     }
 }
