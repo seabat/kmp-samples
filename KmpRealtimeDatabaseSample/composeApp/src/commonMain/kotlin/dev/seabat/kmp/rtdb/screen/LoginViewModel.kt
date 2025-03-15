@@ -12,6 +12,7 @@ import dev.seabat.kmp.rtdb.usecase.CreateUserRecordUseCase
 import dev.seabat.kmp.rtdb.usecase.FetchCustomTokenUseCase
 import dev.seabat.kmp.rtdb.usecase.LoadGuidUseCase
 import dev.seabat.kmp.rtdb.usecase.LoadUserIdUseCase
+import dev.seabat.kmp.rtdb.usecase.SaveGuidUseCase
 import dev.seabat.kmp.rtdb.usecase.SaveUserIdUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,6 +21,7 @@ import kotlinx.coroutines.launch
 class LoginViewModel : ViewModel() {
     private val guidRepository = GuidRepository(createDataStore(PlatformContext()))
     private val createGuidUseCase = CreateGuidUseCase(guidRepository)
+    private val saveGuidUseCase = SaveGuidUseCase(guidRepository)
     private val loadGuidUseCase = LoadGuidUseCase(guidRepository)
     private val userIdRepository = UserIdRepository(createDataStore(PlatformContext()))
     private val loadUserIdUseCase = LoadUserIdUseCase(userIdRepository)
@@ -45,9 +47,15 @@ class LoginViewModel : ViewModel() {
         }
     }
 
-    fun createAndSaveGuid() {
+    fun createGuid() {
         viewModelScope.launch {
             _guid.value = createGuidUseCase.invoke()
+        }
+    }
+
+    fun saveGuid(guid: String) {
+        viewModelScope.launch {
+            saveGuidUseCase.invoke(guid)
         }
     }
 

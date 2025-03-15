@@ -47,7 +47,7 @@ fun InitScreen(
                 onClick = { goToLogin(false, true) },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("既存ユーザー＋新しいGUIDのレコード監視する")
+                Text("前回ユーザー＋新しいGUIDのレコード監視する")
             }
             Spacer(modifier = Modifier.height(16.dp))
             Button(
@@ -55,7 +55,7 @@ fun InitScreen(
                 onClick = { goToLogin(false, false) },
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text("既存ユーザー＋既存GUID のレコード監視する")
+                Text("前回ユーザー＋前回GUID のレコード監視する")
             }
         }
     }

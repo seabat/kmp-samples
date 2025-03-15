@@ -1,6 +1,8 @@
 package dev.seabat.kmp.rtdb.screen
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
@@ -88,10 +90,13 @@ private fun Content(
     val guidState by viewModel.guid.collectAsStateWithLifecycle()
     val userIdState by viewModel.userId.collectAsStateWithLifecycle()
 
+    val scrollState = rememberScrollState()
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(16.dp)
+            .verticalScroll(scrollState),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -112,7 +117,7 @@ private fun Content(
         Button(
             enabled = guidState.isEmpty(),
             onClick = {
-                viewModel.createAndSaveGuid()
+                viewModel.createGuid()
             }
         ) {
             Text("GUID生成")
@@ -131,6 +136,7 @@ private fun Content(
             onClick = {
                 viewModel.fetchCustomToken(userId = userIdState, createFlag = newUserId || newGuid)
                 viewModel.saveUserId(userIdState)
+                viewModel.saveGuid(guidState)
             }
         ) {
             Text("トークンを取得")
@@ -144,13 +150,21 @@ private fun Content(
                     modifier = Modifier.fillMaxWidth(),
                     text = "取得したトークン: $tokenState"
                 )
-                Button(
-                    onClick = {
-                        goToDatabaseObservation(userIdState, guidState, tokenState)
-                        viewModel.clearScreen()
-                    }
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
                 ) {
-                    Text("ホーム画面に遷移")
+                    Button(
+                        onClick = {
+                            goToDatabaseObservation(userIdState, guidState, tokenState)
+                            viewModel.clearScreen()
+                        }
+                    ) {
+                        Text("ホーム画面に遷移")
+                    }
                 }
             }
         }
