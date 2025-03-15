@@ -1,6 +1,6 @@
 package dev.seabat.kmp.rtdb
 
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -32,6 +32,9 @@ fun App() {
                 LoginScreen(
                     newUserId = it.toRoute<Login>().newUserId,
                     newGuid = it.toRoute<Login>().newGuid,
+                    goBack = {
+                        navController.popBackStack()
+                    },
                     goToDatabaseObservation = { userId, guid, token ->
                         navController.navigate(DatabaseObservation(token = token, userId = userId, guid = guid))
                     },
