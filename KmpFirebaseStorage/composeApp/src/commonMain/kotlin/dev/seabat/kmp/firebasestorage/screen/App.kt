@@ -10,15 +10,25 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import dev.seabat.kmp.firebasestorage.di.viewModelModule
+import dev.seabat.kmp.firebasestorage.screen.AppViewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import kmpfirebasestorage.composeapp.generated.resources.Res
 import kmpfirebasestorage.composeapp.generated.resources.compose_multiplatform
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 @Preview
 fun App() {
+    val vm = koinViewModel<AppViewModel>()
+    val noticeState by vm.notice.collectAsState()
+
+    LaunchedEffect(Unit) {
+        vm.fetchNotice()
+    }
+
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
@@ -30,6 +40,7 @@ fun App() {
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
                     Text("Compose: $greeting")
+                    Text("Notice: ${noticeState}")
                 }
             }
         }
