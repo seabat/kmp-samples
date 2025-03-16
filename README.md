@@ -11,62 +11,60 @@ TBD
 
 [Firebase Realtime Database](https://firebase.google.com/docs/database?hl=ja) を扱うサンプルプログラム。
 
-#### 構成
+### 構成
 
-<img src="KmpRealtimeDatabaseSample/docs/architecture.png" width = "300px">  
+#### システム構成  
+
+<img src="KmpRealtimeDatabaseSample/docs/system_architecture.png" width = "300px">  
+
+* バックエンドとして、Realtime Database、 Firebase Cloud Functions、 Firebase Auth を使用。
+
+#### アプリ構成  
+
+<img src="KmpRealtimeDatabaseSample/docs/app_architecture.png" width = "300px">  
   
 
 * UI は [Compose Multiplatform](https://www.jetbrains.com/ja-jp/compose-multiplatform/) を使用。
 * Firebase Realtime Databa へのアクセスは [firebase-kotlin-sdk](https://github.com/GitLiveApp/firebase-kotlin-sdk/tree/master/firebase-database) を使用。
 
-#### 仕様
+### 仕様
 
-アプリ初回起動時  
-<img src="KmpRealtimeDatabaseSample/docs/first.png" width = "300px">  
+#### Realtime Database 監視開始  
 
-データ更新時  
-<img src="KmpRealtimeDatabaseSample/docs/updateData.png" width = "300px">  
+<img src="KmpRealtimeDatabaseSample/docs/activity_observe.png" width = "300px">  
 
-アプリ再起動時  
-<img src="KmpRealtimeDatabaseSample/docs/relaunch.png" width = "300px">  
+#### Realtime Database 更新通知  
 
+<img src="KmpRealtimeDatabaseSample/docs/activity_notification.png" width = "300px">  
 
-#### Firebase Realtime Database アクセス実装 
+#### Realtime Database データ構造  
 
-``` kotlin
-package dev.seabat.kmp.rtdb.repository
+users/ユーザーID(アカウントID)/GUID/balance
+<img src="KmpRealtimeDatabaseSample/docs/db_data.png" width = "300px">  
 
-import dev.gitlive.firebase.Firebase
-import dev.gitlive.firebase.database.DataSnapshot
-import dev.gitlive.firebase.database.database
-import kotlinx.coroutines.flow.Flow
+#### Realtime Database ルール  
 
-class RealtimeDatabaseRepository {
+Firebase Auth を使い、アカウントID(ユーザーID)に対する Firebase トークン発行する。 users/アカウントID(ユーザーID) とトークンに含まれるアカウントID(ユーザーID)が一致すればアクセス権限が与えられる。
 
-    fun readUser(id: String): Flow<DataSnapshot> {
-        val database = Firebase.database
-        val ref = database.reference("users/$id")
-        return ref.valueEvents
+``` 
+{
+  "rules": {
+    "users": {
+      "$accountId": {
+        ".read": "$accountId === auth.uid",
+        ".write": "$accountId === auth.uid"
+      }
     }
-
-    fun readBalance(id: String): Flow<DataSnapshot> {
-        val database = Firebase.database
-        val ref = database.reference("users/$id/balance")
-        return ref.valueEvents
-    }
-
-    suspend fun writeUser(id: String, user: User) {
-        val database = Firebase.database
-        val ref = database.reference("users")
-        val childRef = ref.child(id)
-        childRef.setValue(user)
-    }
+  }
 }
 ```
 
-#### デモ
+※ アプリからデータを書き込むことはないので `".write": false` にしておいて良い。
 
-<img src="KmpRealtimeDatabaseSample/docs/KmpRealtimeDatabaseSample.gif" width = "350px">
+### デモ
+
+<img src="KmpRealtimeDatabaseSample/docs/demo_rtdb.gif" width = "350px">
+
 
 ## Kmp Multi Module Sample
 
