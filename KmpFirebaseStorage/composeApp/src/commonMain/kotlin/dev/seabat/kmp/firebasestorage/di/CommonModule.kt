@@ -1,10 +1,10 @@
 package dev.seabat.kmp.firebasestorage.di
 
-import dev.seabat.kmp.firebasestorage.datasource.FirebaseStorageDataSource
 import dev.seabat.kmp.firebasestorage.repository.NoticeRepository
 import dev.seabat.kmp.firebasestorage.screen.AppViewModel
 import dev.seabat.kmp.firebasestorage.usecase.FetchNoticeUseCase
 import org.koin.core.context.startKoin
+import org.koin.core.module.Module
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.KoinAppDeclaration
 import org.koin.dsl.module
@@ -14,16 +14,15 @@ val useCaseModule = module {
 }
 
 val repositoryModule = module {
-    single { NoticeRepository(get()) }
-}
-
-val dataSourceModule = module {
-    single { FirebaseStorageDataSource() }
+    single { NoticeRepository() }
 }
 
 val viewModelModule = module {
     viewModel{ AppViewModel(get()) }
 }
+
+// NOTE: platformModule に登録する Module は by inject() で依存を注入する
+expect val platformModule: Module
 
 // for Android
 fun initKoin(appDeclaration: KoinAppDeclaration) = startKoin {
@@ -32,20 +31,20 @@ fun initKoin(appDeclaration: KoinAppDeclaration) = startKoin {
         viewModelModule,
         useCaseModule,
         repositoryModule,
-        dataSourceModule
+        platformModule,
     )
 }
 
 // for iOS
 // Kotlin の関数は  [ファイル名]Kt.do[関数名]() として Swift から呼び出す。
 // CommonModuleKt.doInitKoin()
-fun initKoin() {
+fun initKoin(onKoinStart: () -> Module) {
     startKoin {
         modules(
             viewModelModule,
             useCaseModule,
             repositoryModule,
-            dataSourceModule
+            onKoinStart(),
         )
     }
 }
