@@ -5,7 +5,7 @@ import com.google.firebase.storage.FirebaseStorage
 class FirebaseStorageDataSource(
     private val storage: FirebaseStorage
 ) : FirebaseStorageDataSourceContract {
-    override fun fetch(): String {
-        return "Android のお知らせ"
+    override fun fetch(callback: (String?, Throwable?) -> Unit) {
+        return callback("Androidのお知らせ", null)
     }
 }

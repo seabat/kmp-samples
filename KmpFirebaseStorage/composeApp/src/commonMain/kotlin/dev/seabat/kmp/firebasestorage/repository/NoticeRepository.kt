@@ -4,12 +4,19 @@ import dev.seabat.kmp.firebasestorage.datasource.FirebaseStorageDataSourceContra
 import dev.seabat.kmp.firebasestorage.util.log
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 class NoticeRepository : KoinComponent {
-    fun fetch(): String {
+    suspend fun fetch(): String {
         val dataSource: FirebaseStorageDataSourceContract by inject()
-        val notice = dataSource.fetch()
-        log(notice)
-        return notice
+        return suspendCoroutine { continuation ->
+            dataSource.fetch { notice, error ->
+                notice?.let {
+                    log(it)
+                    continuation.resume(it)
+                }
+            }
+        }
     }
 }
