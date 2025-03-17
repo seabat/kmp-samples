@@ -36,9 +36,8 @@ fun initAndroidKoin(appDeclaration: KoinAppDeclaration) = startKoin {
 }
 
 // for iOS
-// Kotlin の関数は  [ファイル名]Kt.do[関数名]() として Swift から呼び出す。
-// CommonModuleKt.doInitKoin()
-fun initKoin(onKoinStart: () -> Module) {
+// CommonModuleKt.doInitIosKoin() として Swift から呼び出す。
+fun initIosKoin(onKoinStart: () -> Module) {
     startKoin {
         modules(
             viewModelModule,

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
+		1134CC882D87E6D800740863 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1134CC872D87E6D800740863 /* FirebaseCore */; };
+		1134CC8A2D87EEE900740863 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1134CC892D87EEE900740863 /* GoogleService-Info.plist */; };
 		11C4838D2D86E1D0002A3231 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 11C4838C2D86E1D0002A3231 /* FirebaseStorage */; };
 		11C483932D86E36F002A3231 /* SwiftLibDependencyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C483912D86E36F002A3231 /* SwiftLibDependencyFactory.swift */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
@@ -18,6 +20,7 @@
 /* Begin PBXFileReference section */
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1134CC892D87EEE900740863 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11C483912D86E36F002A3231 /* SwiftLibDependencyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLibDependencyFactory.swift; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* KmpFirebaseStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KmpFirebaseStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1134CC882D87E6D800740863 /* FirebaseCore in Frameworks */,
 				11C4838D2D86E1D0002A3231 /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +97,7 @@
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				11C483922D86E36F002A3231 /* di */,
+				1134CC892D87EEE900740863 /* GoogleService-Info.plist */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			name = iosApp;
 			packageProductDependencies = (
 				11C4838C2D86E1D0002A3231 /* FirebaseStorage */,
+				1134CC872D87E6D800740863 /* FirebaseCore */,
 			);
 			productName = iosApp;
 			productReference = 7555FF7B242A565900829871 /* KmpFirebaseStorage.app */;
@@ -176,6 +182,7 @@
 			files = (
 				058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */,
 				058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */,
+				1134CC8A2D87EEE900740863 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +347,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_ID = dev.seabat.kmp.firebasestorage;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
@@ -356,6 +364,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_ID}${TEAM_ID}";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = dev.seabat.kmp.firebasestorage;
 				PRODUCT_NAME = "${APP_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -367,6 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_ID = dev.seabat.kmp.firebasestorage;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
@@ -383,6 +393,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${BUNDLE_ID}${TEAM_ID}";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = dev.seabat.kmp.firebasestorage;
 				PRODUCT_NAME = "${APP_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -425,6 +436,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1134CC872D87E6D800740863 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 11C4838B2D86E1D0002A3231 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
 		11C4838C2D86E1D0002A3231 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 11C4838B2D86E1D0002A3231 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
