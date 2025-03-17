@@ -25,7 +25,7 @@ val viewModelModule = module {
 expect val platformModule: Module
 
 // for Android
-fun initKoin(appDeclaration: KoinAppDeclaration) = startKoin {
+fun initAndroidKoin(appDeclaration: KoinAppDeclaration) = startKoin {
     appDeclaration()
     modules(
         viewModelModule,

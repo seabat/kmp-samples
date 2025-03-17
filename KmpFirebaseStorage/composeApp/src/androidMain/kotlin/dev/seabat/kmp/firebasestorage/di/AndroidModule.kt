@@ -9,6 +9,8 @@ import org.koin.dsl.module
 
 actual val platformModule = module {
     single {
-        FirebaseStorageDataSource(storage = Firebase.storage)
+        val URL = "gs://seabat-dev.firebasestorage.app"
+        val storage = Firebase.storage(URL)
+        FirebaseStorageDataSource(storage = storage)
     } bind FirebaseStorageDataSourceContract::class
 }

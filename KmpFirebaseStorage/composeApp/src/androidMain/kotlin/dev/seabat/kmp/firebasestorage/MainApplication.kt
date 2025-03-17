@@ -1,14 +1,14 @@
 package dev.seabat.kmp.firebasestorage
 
 import android.app.Application
-import dev.seabat.kmp.firebasestorage.di.initKoin
+import dev.seabat.kmp.firebasestorage.di.initAndroidKoin
 import org.koin.android.ext.koin.androidContext
 
 class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        initKoin {
+        initAndroidKoin {
             androidContext(this@MainApplication)
         }
     }
