@@ -2,7 +2,6 @@
 .kotlin
 .kotlin/metadata/
 .gradle
-.kotlin/metadata/
 **/build/
 xcuserdata
 !src/**/build/
@@ -19,5 +18,5 @@ captures
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 
+GoogleService-Info.plist
 google-services.json
-service-account.json

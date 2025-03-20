@@ -1,0 +1,479 @@
+<mxfile host="Electron" modified="2025-03-17T07:45:25.376Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.4.8 Chrome/124.0.6367.207 Electron/30.0.6 Safari/537.36" etag="C5toT25inwoi83MuoAHP" version="24.4.8" type="device" pages="3">
+  <diagram name="ページ1" id="PQQ8E1PM0vK2L9uNBiri">
+    <mxGraphModel dx="2383" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="cVxXZY86I89h4Y06ZRvG-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-570" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-1" value="SwiftLibDependencyFactoryImpl" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="-660" y="40" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-5" value="provideFirebaseAnalyticsImpl()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="100" y="410" as="sourcePoint" />
+            <mxPoint x="-570" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-7" value="&amp;lt;&amp;lt;get instance&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-570" y="450" as="sourcePoint" />
+            <mxPoint x="-400" y="450.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="800" as="targetPoint" />
+            <mxPoint x="99.5" y="90" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-11" value="FirebaseAnalyticsImpl インスタンス" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.0588" relative="1" as="geometry">
+            <mxPoint x="-400" y="490" as="sourcePoint" />
+            <mxPoint x="-570" y="490" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-13" value="shared モジュール側" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=#6c8ebf;fillColor=#dae8fc;" parent="1" vertex="1">
+          <mxGeometry x="-320" width="500" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="cVxXZY86I89h4Y06ZRvG-15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-820" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-15" value="iOSApp" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="-860" y="40" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="cVxXZY86I89h4Y06ZRvG-18" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-270" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-18" value="AppInitializer" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-320" y="40" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-19" value="initialize(クロージャ)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="-0.619" y="5" width="80" relative="1" as="geometry">
+            <mxPoint x="-820" y="195" as="sourcePoint" />
+            <mxPoint x="-270" y="194.5" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="cVxXZY86I89h4Y06ZRvG-20" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-720" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-20" value="クロージャ" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-760" y="110" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-22" value="callback" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-270" y="230" as="sourcePoint" />
+            <mxPoint x="-720" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="cVxXZY86I89h4Y06ZRvG-24" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-100" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-24" value="KoinApplication" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-160" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-25" value="&amp;lt;&amp;lt;get instance&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-720" y="270" as="sourcePoint" />
+            <mxPoint x="-570" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-26" value="SwiftLibDependencyFactoryImpl インスタンス" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-570" y="310" as="sourcePoint" />
+            <mxPoint x="-720" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-27" value="provideSwiftLibDependencyFactory()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.5774" width="80" relative="1" as="geometry">
+            <mxPoint x="-719" y="350" as="sourcePoint" />
+            <mxPoint x="-99" y="350" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-38" value="SwiftLibDependencyFactoryImpl インスタンス" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="cVxXZY86I89h4Y06ZRvG-27" vertex="1" connectable="0">
+          <mxGeometry x="0.3048" y="-3" relative="1" as="geometry">
+            <mxPoint x="95" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-29" value="module" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="590" as="sourcePoint" />
+            <mxPoint x="-100" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-30" value="modules" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-720" y="710" as="sourcePoint" />
+            <mxPoint x="-270" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-31" value="::swiftLibDependenciesModule" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="20" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-32" value="&amp;lt;&amp;lt;invoke&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-100" y="380" as="sourcePoint" />
+            <mxPoint x="100" y="380" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SDnM4UmF3SlRCi5w-zEy-1" value="SwiftLibDependencyFactoryImpl インスタンス" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="cVxXZY86I89h4Y06ZRvG-32">
+          <mxGeometry x="-0.38" relative="1" as="geometry">
+            <mxPoint x="58" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-33" value="&amp;lt;&amp;lt;create&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-820" y="140" as="sourcePoint" />
+            <mxPoint x="-760" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="cVxXZY86I89h4Y06ZRvG-35" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-400" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-35" value="FirebaseAnalyticsImpl" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="-460" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-36" value="FirebaseAnalyticsImpl インスタンス" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-570" y="520" as="sourcePoint" />
+            <mxPoint x="100" y="520" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-37" value="&lt;span style=&quot;font-size: 11px; text-wrap: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;FirebaseAnalyticsImpl&lt;/span&gt;&amp;nbsp;インスタンス で KoinDefinition を生成" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=190;height=30;" parent="1" vertex="1">
+          <mxGeometry x="60" y="540" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-39" value="modules を登録" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=170;height=30;" parent="1" vertex="1">
+          <mxGeometry x="-310" y="720" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-41" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-270" y="780" as="sourcePoint" />
+            <mxPoint x="-720" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-42" value="iOS 側" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=#d79b00;fillColor=#ffe6cc;" parent="1" vertex="1">
+          <mxGeometry x="-860" width="520" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-43" value="&lt;span style=&quot;box-sizing: inherit; color: rgb(170, 13, 145); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot; class=&quot;hljs-keyword&quot;&gt;internal&lt;/span&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt; &lt;/span&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot; class=&quot;hljs-function&quot;&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(170, 13, 145); font-size: 10px;&quot; class=&quot;hljs-keyword&quot;&gt;fun&lt;/span&gt; &lt;span style=&quot;box-sizing: inherit; color: rgb(28, 0, 207); font-size: 10px;&quot; class=&quot;hljs-title&quot;&gt;swiftLibDependenciesModule&lt;/span&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(92, 38, 153); font-size: 10px;&quot; class=&quot;hljs-params&quot;&gt;(&lt;/span&gt;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot; class=&quot;hljs-function&quot;&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(92, 38, 153); font-size: 10px;&quot; class=&quot;hljs-params&quot;&gt;    factory: &lt;span style=&quot;box-sizing: inherit; font-size: 10px;&quot; class=&quot;hljs-type&quot;&gt;SwiftLibDependencyFactory&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot; class=&quot;hljs-function&quot;&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(92, 38, 153); font-size: 10px;&quot; class=&quot;hljs-params&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;: Module = module {&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;    single { factory.provideFirebaseAnalyticsImpl() } bind Analytics::&lt;/span&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(170, 13, 145); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot; class=&quot;hljs-keyword&quot;&gt;class&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; font-size: 10px; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;}&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontFamily=Lucida Console;fontSize=10;" parent="1" vertex="1">
+          <mxGeometry x="120" y="600" width="440" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-44" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(170, 13, 145); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot; class=&quot;hljs-keyword&quot;&gt;object&lt;/span&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt; AppInitializer {&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;    &lt;/span&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot; class=&quot;hljs-function&quot;&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(170, 13, 145);&quot; class=&quot;hljs-keyword&quot;&gt;fun&lt;/span&gt; &lt;span style=&quot;box-sizing: inherit; color: rgb(28, 0, 207);&quot; class=&quot;hljs-title&quot;&gt;initialize&lt;/span&gt;&lt;span style=&quot;box-sizing: inherit; color: rgb(92, 38, 153);&quot; class=&quot;hljs-params&quot;&gt;(onKoinStart: &lt;span style=&quot;box-sizing: inherit;&quot; class=&quot;hljs-type&quot;&gt;KoinApplication&lt;/span&gt;.() -&amp;gt; &lt;span style=&quot;box-sizing: inherit;&quot; class=&quot;hljs-type&quot;&gt;Unit&lt;/span&gt;)&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt; {&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;        startKoin {&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;            onKoinStart()&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;            modules(appModules)&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;        }&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;    }&lt;/span&gt;&lt;br style=&quot;box-sizing: inherit; color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;&lt;span style=&quot;color: rgb(36, 36, 36); font-family: source-code-pro, Menlo, Monaco, &amp;quot;Courier New&amp;quot;, Courier, monospace; letter-spacing: -0.308px; white-space: pre; background-color: rgb(249, 249, 249);&quot;&gt;}&lt;/span&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;fontFamily=Lucida Console;" parent="1" vertex="1">
+          <mxGeometry x="-250" y="790" width="360" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="cVxXZY86I89h4Y06ZRvG-45" value="modules" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-100" y="680" as="sourcePoint" />
+            <mxPoint x="-720" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NsWdUXEdc2d7OOoVY2s7-1" value="&lt;span style=&quot;font-size: 11px; text-wrap: nowrap;&quot;&gt;List&amp;lt;Module&amp;gt;&lt;/span&gt;&amp;nbsp;で KoinDefinition を生成" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=190;height=30;" vertex="1" parent="1">
+          <mxGeometry x="-140" y="620" width="200" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Ohwq3JdMjUNx5Ta7FOX3" name="ページ2">
+    <mxGraphModel dx="2473" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="aRStdqjVqvx4UX47HXgc-2" value="" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-290" y="480" width="440" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="TTWtEM8SkiFZnKSQhMvn-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-570" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-2" value="SwiftLibDependencyFactory" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="-660" y="40" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-3" value="provideFirebaseStorageDataSource()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-20" y="400" as="sourcePoint" />
+            <mxPoint x="-570" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-4" value="&amp;lt;&amp;lt;get instance&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-570" y="440" as="sourcePoint" />
+            <mxPoint x="-380" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-20" y="800" as="targetPoint" />
+            <mxPoint x="-20.5" y="90" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-6" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="-0.0526" y="40" relative="1" as="geometry">
+            <mxPoint x="-380" y="480" as="sourcePoint" />
+            <mxPoint x="-570" y="480" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-39" value="&lt;span style=&quot;text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;FirebaseStorageDataSource インスタンス&lt;/font&gt;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="TTWtEM8SkiFZnKSQhMvn-6" vertex="1" connectable="0">
+          <mxGeometry x="-0.2316" y="2" relative="1" as="geometry">
+            <mxPoint x="-14" y="13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-7" value="shared モジュール側" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=#6c8ebf;fillColor=#dae8fc;" parent="1" vertex="1">
+          <mxGeometry x="-260" width="300" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="TTWtEM8SkiFZnKSQhMvn-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-820" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-9" value="iOSApp" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="-860" y="40" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="TTWtEM8SkiFZnKSQhMvn-11" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-200" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-11" value="CommonModuleKt" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-260" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-12" value="&amp;lt;&amp;lt;invoke&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="-0.619" y="5" width="80" relative="1" as="geometry">
+            <mxPoint x="-820" y="195" as="sourcePoint" />
+            <mxPoint x="-200" y="195" as="targetPoint" />
+            <mxPoint y="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="TTWtEM8SkiFZnKSQhMvn-14" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-720" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-14" value="クロージャ" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-760" y="110" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-15" value="callback" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-200" y="230" as="sourcePoint" />
+            <mxPoint x="-720" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-18" value="&amp;lt;&amp;lt;get instance&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-720" y="270" as="sourcePoint" />
+            <mxPoint x="-570" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-19" value="SwiftLibDependencyFactory インスタンス" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.0667" y="20" relative="1" as="geometry">
+            <mxPoint x="-570" y="310" as="sourcePoint" />
+            <mxPoint x="-720" y="310" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-20" value="createSwiftLibDependencyModule()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.7419" width="80" relative="1" as="geometry">
+            <mxPoint x="-719" y="350" as="sourcePoint" />
+            <mxPoint x="-20" y="350" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-21" value="SwiftLibDependencyFactory インスタンス" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="TTWtEM8SkiFZnKSQhMvn-20" vertex="1" connectable="0">
+          <mxGeometry x="0.3048" y="-3" relative="1" as="geometry">
+            <mxPoint x="126" y="7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-23" value="module" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="-0.8039" y="-20" relative="1" as="geometry">
+            <mxPoint x="-720" y="650" as="sourcePoint" />
+            <mxPoint x="-200" y="650" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-24" value="IosModuleKt" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="-80" y="40" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-26" value="&amp;lt;&amp;lt;create&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-820" y="140" as="sourcePoint" />
+            <mxPoint x="-760" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" parent="1" source="TTWtEM8SkiFZnKSQhMvn-28" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-380" y="800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-28" value="FirebaseStorageDataSource" style="html=1;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="-460" y="40" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-29" value="FirebaseStorageDataSource インスタンス" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.5472" relative="1" as="geometry">
+            <mxPoint x="-570" y="530" as="sourcePoint" />
+            <mxPoint x="-20" y="530" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-30" value="FirebaseStorageDataSource インスタンス で KoinDefinition を生成" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=200;height=30;" parent="1" vertex="1">
+          <mxGeometry x="-90" y="545" width="210" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-31" value="&lt;span style=&quot;font-size: 11px; text-wrap: nowrap; background-color: rgb(255, 255, 255);&quot;&gt;module&amp;nbsp;&lt;/span&gt;を登録" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=170;height=30;" parent="1" vertex="1">
+          <mxGeometry x="-250" y="660" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-32" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-200" y="710" as="sourcePoint" />
+            <mxPoint x="-720" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-33" value="iOS 側" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;strokeColor=#d79b00;fillColor=#ffe6cc;" parent="1" vertex="1">
+          <mxGeometry x="-860" width="560" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWtEM8SkiFZnKSQhMvn-36" value="module" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="-0.7657" y="20" relative="1" as="geometry">
+            <mxPoint x="-20" y="600" as="sourcePoint" />
+            <mxPoint x="-723" y="600" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WZTicwEyI-RGGrN9rBz4-1" value="CommonModule.kt&amp;nbsp;&lt;div&gt;ファイル&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=11;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="120" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WZTicwEyI-RGGrN9rBz4-2" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="WZTicwEyI-RGGrN9rBz4-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-230" y="140" as="sourcePoint" />
+            <mxPoint x="-180" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WZTicwEyI-RGGrN9rBz4-3" value="IosModule.kt&amp;nbsp;&lt;div&gt;ファイル&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=11;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="120" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WZTicwEyI-RGGrN9rBz4-4" value="" style="endArrow=none;html=1;rounded=0;exitX=0;exitY=0;exitDx=64.5;exitDy=0;exitPerimeter=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WZTicwEyI-RGGrN9rBz4-3" target="TTWtEM8SkiFZnKSQhMvn-24">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-134" y="130" as="sourcePoint" />
+            <mxPoint x="-170" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="7BAnhTIj0S8NQ3it1dhV" name="ページ3">
+    <mxGraphModel dx="1006" dy="1912" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-1" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;commonApp&lt;/font&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="550" y="-120" width="630" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-2" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;iosApp&lt;/font&gt;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="220" y="-120" width="260" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-3" value="FirebaseStorageDataSourceContract" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="280" width="250" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-3">
+          <mxGeometry y="26" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-5" value="FirebaseStorageDataSource" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="280" width="190" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-6" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-5">
+          <mxGeometry y="26" width="190" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-7" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="y7fDyTN5upEh1MZG0OhL-5" target="y7fDyTN5upEh1MZG0OhL-3">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="250" y="350" as="sourcePoint" />
+            <mxPoint x="410" y="350" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-8" value="SwiftLibDependencyFactory" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="159" width="190" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-9" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-8">
+          <mxGeometry y="26" width="190" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-10" value="" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="y7fDyTN5upEh1MZG0OhL-8" target="y7fDyTN5upEh1MZG0OhL-23">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="410" y="257" as="sourcePoint" />
+            <mxPoint x="635" y="177" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-11" value="::&amp;nbsp;iOSApp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="-67" width="160" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-11">
+          <mxGeometry y="26" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-13" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="y7fDyTN5upEh1MZG0OhL-11">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="7" as="sourcePoint" />
+            <mxPoint x="640" y="-50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-14" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.499;exitY=1.023;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="y7fDyTN5upEh1MZG0OhL-20">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="823" y="109" as="sourcePoint" />
+            <mxPoint x="890" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-15" value="CommonModuleKt" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="-80" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-15">
+          <mxGeometry y="26" width="240" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-17" value="+ doInitIosKoin(onKoinStart: () -&amp;gt; Module)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-15">
+          <mxGeometry y="34" width="240" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-18" value="IosModuleKt" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="50" width="500" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-18">
+          <mxGeometry y="26" width="500" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-20" value="+ createSwiftLibDependencyModule(factory: SwiftLibDependencyFactoryContract): Module" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-18">
+          <mxGeometry y="34" width="500" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-21" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.136;entryY=-0.003;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="y7fDyTN5upEh1MZG0OhL-11" target="y7fDyTN5upEh1MZG0OhL-18">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="440" y="-40" as="sourcePoint" />
+            <mxPoint x="520" y="-40" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-22" value="Create" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="y7fDyTN5upEh1MZG0OhL-8" target="y7fDyTN5upEh1MZG0OhL-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="210" as="sourcePoint" />
+            <mxPoint x="550" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-23" value="SwiftLibDependencyFactoryContract" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="160" width="500" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-24" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-23">
+          <mxGeometry y="26" width="500" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="y7fDyTN5upEh1MZG0OhL-25" value="+ provideFirebaseStorageDataSource():&amp;nbsp;FirebaseStorageDataSourceContract" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="y7fDyTN5upEh1MZG0OhL-23">
+          <mxGeometry y="34" width="500" height="26" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
