@@ -1,4 +1,4 @@
-package dev.seabat.kmp.firebasestorage
+package dev.seabat.kmp.firebasestorage.screen
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -10,8 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import dev.seabat.kmp.firebasestorage.di.viewModelModule
-import dev.seabat.kmp.firebasestorage.screen.AppViewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -36,11 +34,9 @@ fun App() {
                 Text("Click me!")
             }
             AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
                 Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
                     Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                    Text("Notice: ${noticeState}")
+                    Text("Notice: $noticeState")
                 }
             }
         }
