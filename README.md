@@ -20,6 +20,7 @@ Kotlin Multiplatform の shared モジュールをマルチモジュール化し
 ## Kmp Firebase Storage
 
 Swift Package の Firebase iOS SDK を使って Firebase Storage にアクセスするサンプルプログラム。  
+Koin で injection しているクラスの Unit テストプログラム。
 
 [Kmp Firebase Storage の REAME へ](./KmpFirebaseStorage/README.md)
 
