@@ -11,11 +11,16 @@
 
 ### 構成
 
-<img src="docs/architecture.png" width = "300px">  
+<img src="docs/system_architecture.png" width = "400px">  
   
-
-* UI は [Compose Multiplatform](https://www.jetbrains.com/ja-jp/compose-multiplatform/) を使用。
-* Firebase Realtime Databa へのアクセスは [firebase-kotlin-sdk](https://github.com/GitLiveApp/firebase-kotlin-sdk/tree/master/firebase-database) を使用。
+* アプリ  
+    Realtime Database を監視し Realtime Database が更新されると更新内容を表示する
+* Firebasse Cloud Functions  
+    Firebase に対して[カスタム認証](https://firebase.google.com/docs/auth/flutter/custom-auth?hl=ja)を実施、トークンを取得する。正規のシステムであればバックエンドがカスタム認証を実施するはずだが、本プロジェクトはサンプルなので、Firebasse Cloud Functions で代替している。
+* Firebase Auth  
+    [カスタム認証](https://firebase.google.com/docs/auth/flutter/custom-auth?hl=ja)で Realtime Database にアクスセスするためのトークンを発行する。
+* [Realtime Database](https://firebase.google.com/docs/database?hl=ja)
+       
 
 ### 仕様
 
