@@ -35,6 +35,16 @@ fun initAndroidKoin(appDeclaration: KoinAppDeclaration) = startKoin {
     )
 }
 
+// for Compose Preview
+fun initComposePreviewKoin() = startKoin {
+    modules(
+        viewModelModule,
+        useCaseModule,
+        repositoryModule,
+        platformModule
+    )
+}
+
 // for iOS
 // CommonModuleKt.doInitIosKoin() として Swift から呼び出す。
 fun initIosKoin(onKoinStart: () -> Module) {
