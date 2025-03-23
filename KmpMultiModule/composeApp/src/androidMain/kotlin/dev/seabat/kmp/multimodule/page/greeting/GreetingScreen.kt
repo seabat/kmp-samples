@@ -22,12 +22,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import dev.seabat.kmp.multimodule.shared.di.initComposePreviewKoin
 import dev.seabat.kmp.multimodule.shared.viewmodel.GreetingSharedViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@Preview
 fun GreetingScreen(
     name: String = "",
     id: Int = 0,
@@ -74,5 +74,14 @@ fun GreetingScreen(
                 HorizontalDivider()
             }
         }
+    }
+}
+
+@Composable
+@Preview
+fun GreetingScreenPreview() {
+    initComposePreviewKoin()
+    MaterialTheme {
+        GreetingScreen(name = "", id = 0, {})
     }
 }
