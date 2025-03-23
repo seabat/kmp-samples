@@ -64,4 +64,4 @@ class RealtimeDatabaseRepository {
 
 ### デモ
 
-<img src="docs/demo_rtdb.gif" width = "350px">
+<img src="docs/demo_rtdb.gif" width = "700px">
