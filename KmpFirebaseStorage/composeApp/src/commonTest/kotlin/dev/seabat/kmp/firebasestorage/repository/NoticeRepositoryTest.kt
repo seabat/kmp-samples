@@ -1,78 +1,97 @@
 package dev.seabat.kmp.firebasestorage.repository
 
+import dev.seabat.kmp.firebasestorage.di.createFakeFirebaseStorageDataSourceModule
+import kotlinx.coroutines.test.runTest
+import org.koin.core.context.startKoin
+import org.koin.core.context.stopKoin
 import kotlin.test.Test
+import kotlin.test.AfterTest
+import kotlin.test.BeforeTest
+import kotlin.test.assertEquals
 
 class NoticeRepositoryTest {
 
+    @BeforeTest
+    fun setUp() {}
+
     @Test
     fun `Successful fetch with notice`() {
-        // Test that fetch returns the notice string when
-        // dataSource.fetch successfully retrieves a notice.
-        // TODO implement test
+        startKoin {
+            modules(
+                createFakeFirebaseStorageDataSourceModule(
+                    "abc", null
+                )
+            )
+        }
+
+        runTest {
+            val result = NoticeRepository().fetch()
+            assertEquals("abc", result)
+        }
     }
 
     @Test
     fun `Fetch with error message`() {
-        // Test that fetch returns the error message string when
-        // dataSource.fetch encounters an error.
-        // TODO implement test
+        startKoin {
+            modules(
+                createFakeFirebaseStorageDataSourceModule(
+                    null, Throwable("error")
+                )
+            )
+        }
+        runTest {
+            val result = NoticeRepository().fetch()
+            assertEquals("error", result)
+        }
     }
 
     @Test
     fun `Fetch with null notice and null error`() {
-        // Test that fetch returns an empty string when
-        // dataSource.fetch returns a null notice and a null error.
-        // TODO implement test
+        startKoin {
+            modules(
+                createFakeFirebaseStorageDataSourceModule(
+                    null, null
+                )
+            )
+        }
+        runTest {
+            val result = NoticeRepository().fetch()
+            assertEquals("", result)
+        }
     }
 
     @Test
     fun `Fetch with null notice and error with empty message`() {
-        // Test that fetch returns an empty string when
-        // dataSource.fetch returns a null notice and an error with an empty message.
-        // TODO implement test
+        startKoin {
+            modules(
+                createFakeFirebaseStorageDataSourceModule(
+                    null, Throwable("")
+                )
+            )
+        }
+        runTest {
+            val result = NoticeRepository().fetch()
+            assertEquals("", result)
+        }
     }
 
     @Test
     fun `Fetch with empty notice`() {
-        // Test that fetch returns the notice string when
-        // dataSource.fetch successfully retrieves an empty notice.
-        // TODO implement test
+        startKoin {
+            modules(
+                createFakeFirebaseStorageDataSourceModule(
+                    "", null
+                )
+            )
+        }
+        runTest {
+            val result = NoticeRepository().fetch()
+            assertEquals("", result)
+        }
     }
 
-    @Test
-    fun `Dependency Injection check`() {
-        //Test that the FirebaseStorageDataSourceContract is properly
-        // injected.
-        // TODO implement test
+    @AfterTest
+    fun tearDown() {
+        stopKoin()
     }
-
-    @Test
-    fun `Coroutine Context Switch`() {
-        //Test that the resume function of the continuation is performed on the
-        //correct coroutine context or thread. It should perform as expected using
-        // the runTest
-        // TODO implement test
-    }
-
-    @Test
-    fun `DataSource fetch multiple calls`() {
-        //Check multiple calls to the fetch function to ensure state is not corrupted
-        // and that each call provides a result as expected.
-        // TODO implement test
-    }
-
-    @Test
-    fun `Fetch with error and non empty message`() {
-        // Test that fetch returns the non-empty error message string when
-        // dataSource.fetch encounters an error with a non empty message.
-        // TODO implement test
-    }
-
-    @Test
-    fun `Cancelation of coroutine`() {
-        // Test that fetch properly handles coroutine cancelation. Verify no
-        // resources leak. Also verify no errors are thrown after cancelation
-        // TODO implement test
-    }
-
 }
