@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "command": "./gradlew composeApp:run",
+            "name": "Run Desktop App",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "./gradlew composeApp:assembleDebug",
+            "name": "Create Android Debug APK",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "./gradlew :composeApp:compileIosMainKotlinMetadata",
+            "name": "Compile iOS Shared Kotlin Metadata",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ]
+} 
