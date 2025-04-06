@@ -25,6 +25,13 @@ Koin で injection しているクラスの Unit テストプログラム。
 [Kmp Firebase Storage の REAME へ](./KmpFirebaseStorage/README.md)
 
 
+## KMP First Cursor
+
+Cursor を使って開発した世界中の都市の天気情報を表示するアプリ。
+
+[KMP First Cursor の REAME へ](./KmpFirstCursor/README.md)
+
+
 ## Kmp Room Sample
 
 TBD
