@@ -11,13 +11,18 @@ class FirebaseStorageDataSource(
     override fun fetch(callback: (String?, Throwable?) -> Unit) {
         val noticeRef = storage.reference.child("notice.txt")
         noticeRef.getBytes(ONE_MEGABYTE).addOnSuccessListener { bytes ->
-            val text = String(bytes)
-            println("notice.txtの内容: $text")
-            callback(text, null)
+            try {
+                val text = String(bytes)
+                println("notice.txtの内容: $text")
+                callback(text, null)
+            } catch (e: Exception) {
+                println("データのパースに失敗しました: ${e.message}")
+                callback(null, FirebaseStorageError.DataParseError(e.message ?: "Failed to parse data"))
+            }
         }.addOnFailureListener { exception ->
             // エラー処理
             println("テキストデータのダウンロードに失敗しました: ${exception.message}")
-            callback(null, exception)
+            callback(null, FirebaseStorageError.NetworkError(exception.message ?: "Network error occurred"))
         }
     }
 }

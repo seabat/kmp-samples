@@ -12,14 +12,15 @@ class FirebaseStorageDataSource: ComposeApp.FirebaseStorageDataSourceContract {
         noticeRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
             if let error = error {
                 print("Error downloading notice.txt: \(error)")
-                let kotlinError = KotlinThrowable(message: error.localizedDescription)
-                callback(nil, kotlinError)
+                let networkError = FirebaseStorageError.NetworkError(message: error.localizedDescription)
+                callback(nil, networkError)
             } else {
                 if let textData = data, let text = String(data: textData, encoding: .utf8) {
                     print("notice.txt content: \(text)")
                     callback(text, nil)
                 } else {
-                    print("Error: Could not convert data to string.")
+                    let parseError = FirebaseStorageError.DataParseError(message: "Failed to parse data")
+                    callback(nil, parseError)
                 }
             }
         }
