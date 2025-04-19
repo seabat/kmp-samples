@@ -27,17 +27,20 @@ fun App() {
     val vm = koinViewModel<AppViewModel>()
     val noticeState by vm.notice.collectAsState()
 
-    LaunchedEffect(Unit) {
-        vm.fetchNotice()
-    }
-
     var showContent by remember { mutableStateOf(false) }
     Column(
         Modifier.fillMaxSize().background(color = Color.White),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Button(onClick = { showContent = !showContent }) {
+        Button(
+            onClick = {
+                showContent = !showContent
+                if (showContent) {
+                    vm.fetchNotice()
+                }
+            }
+        ) {
             Text("Click me!")
         }
         AnimatedVisibility(showContent) {

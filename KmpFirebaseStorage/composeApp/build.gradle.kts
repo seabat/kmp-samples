@@ -37,6 +37,10 @@ kotlin {
             // firebase
             implementation(project.dependencies.platform("com.google.firebase:firebase-bom:33.10.0"))
             implementation("com.google.firebase:firebase-storage")
+            implementation("com.google.firebase:firebase-appcheck")
+            implementation("com.google.firebase:firebase-appcheck-debug")
+            implementation("com.google.firebase:firebase-appcheck-playintegrity")
+
         }
         commonMain.dependencies {
             implementation(compose.runtime)

@@ -9,4 +9,8 @@ class SwiftLibDependencyFactory: SwiftLibDependencyFactoryContract {
     func provideFirebaseStorageDataSource() -> any FirebaseStorageDataSourceContract {
         return FirebaseStorageDataSource()
     }
+
+    func provideFirebaseAppCheckDataSource() -> any FirebaseAppCheckDataSourceContract {
+        return FirebaseAppCheckDataSource()
+    }
 }

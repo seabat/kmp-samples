@@ -1,5 +1,6 @@
 package dev.seabat.kmp.firebasestorage.di
 
+import dev.seabat.kmp.firebasestorage.datasource.FirebaseAppCheckDataSourceContract
 import dev.seabat.kmp.firebasestorage.datasource.FirebaseStorageDataSourceContract
 import org.koin.core.module.Module
 import org.koin.dsl.bind
@@ -12,4 +13,5 @@ actual val platformModule = module {
 
 fun createSwiftLibDependencyModule(factory: SwiftLibDependencyFactoryContract): Module = module {
     single { factory.provideFirebaseStorageDataSource() } bind FirebaseStorageDataSourceContract::class
+    single { factory.provideFirebaseAppCheckDataSource() } bind FirebaseAppCheckDataSourceContract::class
 }
