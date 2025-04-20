@@ -1,7 +1,7 @@
 package dev.seabat.kmp.firebasestorage.repository
 
 import dev.seabat.kmp.firebasestorage.datasource.FirebaseStorageDataSourceContract
-import dev.seabat.kmp.firebasestorage.datasource.FirebaseStorageError
+import dev.seabat.kmp.firebasestorage.datasource.KmpFirebaseStorageError
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import kotlin.coroutines.resume
@@ -13,17 +13,7 @@ class NoticeRepository : KoinComponent {
         return suspendCoroutine { continuation ->
             dataSource.fetch { notice, error ->
                 val message = notice ?: run {
-                    when (error) {
-                        is FirebaseStorageError.NetworkError -> {
-                            error.message ?: "ネットワークエラー"
-                        }
-                        is FirebaseStorageError.DataParseError -> {
-                            error.message ?: "データパースエラー"
-                        }
-                        else -> {
-                            ""
-                        }
-                    }
+                    error ?.let { throw error }
                 }
                 continuation.resume(message)
             }

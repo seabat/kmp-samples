@@ -1,6 +1,6 @@
 package dev.seabat.kmp.firebasestorage.datasource
 
-sealed class FirebaseStorageError(message: String) : Throwable(message) {
-    class NetworkError(message: String) : FirebaseStorageError(message)
-    class DataParseError(message: String) : FirebaseStorageError(message)
+sealed class KmpFirebaseStorageError(originalMessage: String) : Throwable(originalMessage) {
+    class FirebaseStorageFailure(originalMessage: String) : KmpFirebaseStorageError(originalMessage)
+    class FirebaseStorageDataParse(originalMessage: String) : KmpFirebaseStorageError(originalMessage)
 } 

@@ -1,28 +1,43 @@
 package dev.seabat.kmp.firebasestorage.datasource
 
-import android.util.Log
+import com.google.firebase.Firebase
+import com.google.firebase.appcheck.appCheck
 import com.google.firebase.storage.FirebaseStorage
+import dev.seabat.kmp.firebasestorage.result.FirebaseStorageResult
 
-private const val TAG = "FirebaseStorage"
 const val ONE_MEGABYTE: Long = 1024 * 1024
 
 class FirebaseStorageDataSource(
     private val storage: FirebaseStorage
 ) : FirebaseStorageDataSourceContract {
 
-    override fun fetch(callback: (String?, Throwable?) -> Unit) {
+    override fun fetch(callback: (FirebaseStorageResult) -> Unit) {
+        Firebase.appCheck.getToken(true)
+            .addOnSuccessListener { token ->
+                println("AppCheck Token: ${token.token}")
+            }
+            .addOnFailureListener { e ->
+                println("Failed to get AppCheck token: ${e.message}")
+            }
+
         val noticeRef = storage.reference.child("notice.txt")
+
         noticeRef.getBytes(ONE_MEGABYTE)
             .addOnSuccessListener { bytes ->
                 try {
                     val text = String(bytes)
-                    callback(text, null)
+                    callback(FirebaseStorageResult.Success(text))
                 } catch (e: Exception) {
-                    callback(null, FirebaseStorageError.DataParseError(e.message ?: "Failed to parse data"))
+                    callback(
+                        FirebaseStorageResult.Error(
+                        KmpFirebaseStorageError.FirebaseStorageDataParse(e.message ?: "Failed to parse data from Firebase Storage")
+                    ))
                 }
             }.addOnFailureListener { exception ->
-                Log.d(TAG, "Storage error: ${exception.message}")
-                callback(null, FirebaseStorageError.NetworkError(exception.message ?: "Network error occurred"))
+                callback(
+                    FirebaseStorageResult.Error(
+                    KmpFirebaseStorageError.FirebaseStorageFailure(exception.message ?: "Failed to access Firebase Storage")
+                ))
             }
     }
 }
