@@ -5,11 +5,13 @@ import com.google.firebase.Firebase
 import com.google.firebase.appcheck.FirebaseAppCheck
 import com.google.firebase.appcheck.appCheck
 import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory
+import dev.seabat.kmp.firebasestorage.error.KmpFirebaseStorageError
+import dev.seabat.kmp.firebasestorage.result.FirebaseAppCheckResult
 
 private const val TAG = "AppCheck"
 
 class FirebaseAppCheckDataSource : FirebaseAppCheckDataSourceContract {
-    override fun activate(callback: (Boolean, Throwable?) -> Unit) {
+    override fun activate(callback: (FirebaseAppCheckResult) -> Unit) {
         try {
             val debug = DebugAppCheckProviderFactory.getInstance()
             FirebaseAppCheck.getInstance().installAppCheckProviderFactory(debug)
@@ -22,10 +24,14 @@ class FirebaseAppCheckDataSource : FirebaseAppCheckDataSourceContract {
                     Log.d(TAG, "Failed to get AppCheck token: ${e.message}")
                 }
 
-            callback(true, null)
+            callback(FirebaseAppCheckResult.Success)
         } catch (e: Exception) {
             Log.e(TAG, "Failed to activate AppCheck: ${e.message}", e)
-            callback(false, e)
+            callback(
+                FirebaseAppCheckResult.Error(
+                    KmpFirebaseStorageError.AppCheckActivationFailure(e.message ?: "Failed to activate AppCheck")
+                )
+            )
         }
     }
 }

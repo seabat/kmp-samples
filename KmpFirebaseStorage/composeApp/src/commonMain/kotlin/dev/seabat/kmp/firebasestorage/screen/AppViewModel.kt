@@ -2,6 +2,7 @@ package dev.seabat.kmp.firebasestorage.screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dev.seabat.kmp.firebasestorage.result.FirebaseStorageResult
 import dev.seabat.kmp.firebasestorage.usecase.FetchNoticeUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,15 +12,20 @@ class AppViewModel(
     private val fetchNoticeUseCase: FetchNoticeUseCase
 ) : ViewModel() {
 
-    private val _notice = MutableStateFlow("")
-    val notice: StateFlow<String>
+    private val _notice: MutableStateFlow<FirebaseStorageResult> =
+        MutableStateFlow(FirebaseStorageResult.Success(""))
+    val notice: StateFlow<FirebaseStorageResult>
         get() = _notice
 
     fun fetchNotice() {
         viewModelScope.launch {
-            fetchNoticeUseCase.invoke().collect {
-                _notice.value = it
+            fetchNoticeUseCase.invoke().collect { result ->
+                _notice.value = result
             }
         }
+    }
+
+    fun clearError() {
+        _notice.value = FirebaseStorageResult.Success("")
     }
 }

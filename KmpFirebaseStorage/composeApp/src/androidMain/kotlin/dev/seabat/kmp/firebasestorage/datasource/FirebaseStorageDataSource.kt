@@ -3,6 +3,7 @@ package dev.seabat.kmp.firebasestorage.datasource
 import com.google.firebase.Firebase
 import com.google.firebase.appcheck.appCheck
 import com.google.firebase.storage.FirebaseStorage
+import dev.seabat.kmp.firebasestorage.error.KmpFirebaseStorageError
 import dev.seabat.kmp.firebasestorage.result.FirebaseStorageResult
 
 const val ONE_MEGABYTE: Long = 1024 * 1024
@@ -11,7 +12,7 @@ class FirebaseStorageDataSource(
     private val storage: FirebaseStorage
 ) : FirebaseStorageDataSourceContract {
 
-    override fun fetch(callback: (FirebaseStorageResult) -> Unit) {
+    override fun fetch(callback: (result: FirebaseStorageResult) -> Unit) {
         Firebase.appCheck.getToken(true)
             .addOnSuccessListener { token ->
                 println("AppCheck Token: ${token.token}")
@@ -30,14 +31,20 @@ class FirebaseStorageDataSource(
                 } catch (e: Exception) {
                     callback(
                         FirebaseStorageResult.Error(
-                        KmpFirebaseStorageError.FirebaseStorageDataParse(e.message ?: "Failed to parse data from Firebase Storage")
-                    ))
+                            KmpFirebaseStorageError.FirebaseStorageDataParse(
+                                e.message ?: "Failed to parse data from Firebase Storage"
+                            )
+                        )
+                    )
                 }
             }.addOnFailureListener { exception ->
                 callback(
                     FirebaseStorageResult.Error(
-                    KmpFirebaseStorageError.FirebaseStorageFailure(exception.message ?: "Failed to access Firebase Storage")
-                ))
+                        KmpFirebaseStorageError.FirebaseStorageFailure(
+                            exception.message ?: "Failed to access Firebase Storage"
+                        )
+                    )
+                )
             }
     }
 }

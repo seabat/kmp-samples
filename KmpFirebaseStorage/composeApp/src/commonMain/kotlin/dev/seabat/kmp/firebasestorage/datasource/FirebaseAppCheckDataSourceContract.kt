@@ -1,9 +1,7 @@
 package dev.seabat.kmp.firebasestorage.datasource
 
+import dev.seabat.kmp.firebasestorage.result.FirebaseAppCheckResult
+
 interface FirebaseAppCheckDataSourceContract {
-    fun activate(callback: (Boolean, Throwable?) -> Unit)
-}
-
-fun FirebaseAppCheckDataSourceCallback() {
-
+    fun activate(callback: (FirebaseAppCheckResult) -> Unit)
 }

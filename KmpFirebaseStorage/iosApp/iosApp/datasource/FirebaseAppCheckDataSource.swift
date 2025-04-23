@@ -5,12 +5,12 @@ import FirebaseAppCheck
 
 class FirebaseAppCheckDataSource: ComposeApp.FirebaseAppCheckDataSourceContract {
     
-    func activate(callback: @escaping (KotlinBoolean, KotlinThrowable?) -> Void) {
+    func activate(callback: @escaping (FirebaseAppCheckResult) -> Void) {
         let providerFactory = AppCheckDebugProviderFactory()
         AppCheck.setAppCheckProviderFactory(providerFactory)
         
         // App Check プロバイダファクトリを設定してから Firebase Core を初期化すること
         FirebaseApp.configure()
-        callback(true, nil)
+        callback(FirebaseAppCheckResult.Success())
     }
 } 
