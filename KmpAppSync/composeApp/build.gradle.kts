@@ -33,10 +33,14 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation("com.amplifyframework:aws-api:2.15.0")
+            implementation("com.amplifyframework:aws-datastore:2.15.0")
+            implementation("com.amplifyframework:aws-auth-cognito:2.15.0")
         }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
+            implementation(compose.material3)
             implementation(compose.material)
             implementation(compose.ui)
             implementation(compose.components.resources)
