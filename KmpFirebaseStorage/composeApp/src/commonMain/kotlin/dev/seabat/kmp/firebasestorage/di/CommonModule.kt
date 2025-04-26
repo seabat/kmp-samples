@@ -1,7 +1,9 @@
 package dev.seabat.kmp.firebasestorage.di
 
+import dev.seabat.kmp.firebasestorage.repository.AppCheckRepository
 import dev.seabat.kmp.firebasestorage.repository.NoticeRepository
 import dev.seabat.kmp.firebasestorage.screen.AppViewModel
+import dev.seabat.kmp.firebasestorage.usecase.ActivateAppCheckUseCase
 import dev.seabat.kmp.firebasestorage.usecase.FetchNoticeUseCase
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
@@ -11,10 +13,12 @@ import org.koin.dsl.module
 
 val useCaseModule = module {
     single { FetchNoticeUseCase(get()) }
+    single { ActivateAppCheckUseCase(get()) }
 }
 
 val repositoryModule = module {
     single { NoticeRepository() }
+    single { AppCheckRepository() }
 }
 
 val viewModelModule = module {

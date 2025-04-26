@@ -2,6 +2,8 @@ package dev.seabat.kmp.firebasestorage.di
 
 import com.google.firebase.Firebase
 import com.google.firebase.storage.storage
+import dev.seabat.kmp.firebasestorage.datasource.FirebaseAppCheckDataSource
+import dev.seabat.kmp.firebasestorage.datasource.FirebaseAppCheckDataSourceContract
 import dev.seabat.kmp.firebasestorage.datasource.FirebaseStorageDataSource
 import dev.seabat.kmp.firebasestorage.datasource.FirebaseStorageDataSourceContract
 import org.koin.dsl.bind
@@ -13,4 +15,5 @@ actual val platformModule = module {
         val storage = Firebase.storage(URL)
         FirebaseStorageDataSource(storage = storage)
     } bind FirebaseStorageDataSourceContract::class
+    single { FirebaseAppCheckDataSource() } bind FirebaseAppCheckDataSourceContract::class
 }
