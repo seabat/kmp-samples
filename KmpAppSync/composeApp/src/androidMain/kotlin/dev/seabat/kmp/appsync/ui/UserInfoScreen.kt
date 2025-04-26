@@ -13,8 +13,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun UserInfoScreen(
     repository: UserRepository,
-    userId: String
+    initialUserId: String = "user123"
 ) {
+    var userId by remember { mutableStateOf(initialUserId) }
     var userInfo by remember { mutableStateOf<UserInfo?>(null) }
     var isLoading by remember { mutableStateOf(true) }
     var error by remember { mutableStateOf<String?>(null) }
@@ -52,6 +53,15 @@ fun UserInfoScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        OutlinedTextField(
+            value = userId,
+            onValueChange = { userId = it },
+            label = { Text("ユーザーID") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp)
+        )
+
         when {
             isLoading -> {
                 LoadingContent()

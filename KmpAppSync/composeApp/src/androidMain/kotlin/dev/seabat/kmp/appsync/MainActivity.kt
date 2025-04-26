@@ -18,8 +18,7 @@ class MainActivity : ComponentActivity() {
             MaterialTheme {
                 Surface(color = MaterialTheme.colorScheme.background) {
                     UserInfoScreen(
-                        repository = repository,
-                        userId = "user123" // テスト用のユーザーID
+                        repository = repository
                     )
                 }
             }

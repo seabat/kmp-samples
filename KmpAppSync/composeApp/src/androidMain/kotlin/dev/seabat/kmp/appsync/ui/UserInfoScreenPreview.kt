@@ -35,8 +35,7 @@ fun UserInfoScreenPreview() {
     MaterialTheme {
         Surface(color = MaterialTheme.colorScheme.background) {
             UserInfoScreen(
-                repository = MockUserRepository(),
-                userId = "user123"
+                repository = MockUserRepository()
             )
         }
     }
@@ -53,8 +52,7 @@ fun UserInfoScreenEmptyPreview() {
                     override suspend fun createUserInfo(userInfo: UserInfo): Boolean = true
                     override suspend fun updateUserInfo(userInfo: UserInfo): Boolean = true
                     override fun observeUserInfo(userId: String): Flow<UserInfo?> = flowOf(null)
-                },
-                userId = "user123"
+                }
             )
         }
     }
@@ -73,8 +71,7 @@ fun UserInfoScreenErrorPreview() {
                     override suspend fun createUserInfo(userInfo: UserInfo): Boolean = true
                     override suspend fun updateUserInfo(userInfo: UserInfo): Boolean = true
                     override fun observeUserInfo(userId: String): Flow<UserInfo?> = flowOf(null)
-                },
-                userId = "user123"
+                }
             )
         }
     }
