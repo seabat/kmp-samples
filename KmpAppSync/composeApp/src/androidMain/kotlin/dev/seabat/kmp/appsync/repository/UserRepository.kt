@@ -1,7 +1,6 @@
 package dev.seabat.kmp.appsync.repository
 
 import com.amplifyframework.core.Amplify
-import com.amplifyframework.api.graphql.model.ModelSubscription
 import dev.seabat.kmp.appsync.model.UserInfo
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.channels.awaitClose
@@ -192,13 +191,47 @@ open class UserRepository() {
 
     open fun observeUserInfo(userId: String): Flow<UserInfo?> = callbackFlow {
         try {
+            val subscription = """
+                subscription OnUpdateUserInfo(${'$'}userId: ID!) {
+                    onUpdateUserInfo(filter: { userId: { eq: ${'$'}userId } }) {
+                        userId
+                        points
+                        createdAt
+                        updatedAt
+                        __typename
+                    }
+                }
+            """.trimIndent()
+
+            val variables = mapOf("userId" to userId)
+
+            val request = SimpleGraphQLRequest<Map<String, Any>>(
+                subscription,
+                variables,
+                Map::class.java,
+                object : GraphQLRequest.VariablesSerializer {
+                    override fun serialize(variables: Map<String, Any>): String {
+                        return Gson().toJson(variables)
+                    }
+                }
+            )
+
             val operation = Amplify.API.subscribe(
-                ModelSubscription.onUpdate(UserInfo::class.java),
+                request,
                 { Log.d("UserRepository", "Subscription started") },
                 { event ->
                     Log.d("UserRepository", "Subscription event: $event")
                     if (event.data != null) {
-                        trySendBlocking(event.data)
+                        val userData = event.data["onUpdateUserInfo"] as? Map<String, Any>
+                        if (userData != null) {
+                            val userInfo = UserInfo(
+                                userId = userData["userId"] as String,
+                                points = (userData["points"] as Number).toInt(),
+                                createdAt = Temporal.DateTime((userData["createdAt"] as String)),
+                                updatedAt = Temporal.DateTime((userData["updatedAt"] as String))
+                            )
+                            trySendBlocking(userInfo)
+                        }
                     }
                 },
                 { error -> 
