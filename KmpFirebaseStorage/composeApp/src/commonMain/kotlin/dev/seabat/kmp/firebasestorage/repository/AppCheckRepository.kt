@@ -6,10 +6,11 @@ import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 class AppCheckRepository : KoinComponent {
-    fun activate() {
+    suspend fun activate() {
         val firebaseAppCheckDataSource: FirebaseAppCheckDataSourceContract by inject()
-        firebaseAppCheckDataSource.activate { result ->
-            if (result is FirebaseAppCheckResult.Error) {
+        when(val result = firebaseAppCheckDataSource.activate()) {
+            is FirebaseAppCheckResult.Success -> { /* Do nothing */ }
+            is FirebaseAppCheckResult.Error -> {
                 println("Fail to activate AppCheck: ${result.error.message}")
             }
         }

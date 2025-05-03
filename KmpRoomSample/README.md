@@ -1,4 +1,4 @@
-KmpRoomSample
+KMP Room Sample
 ==============
 
 ### プロジェクト作成手順

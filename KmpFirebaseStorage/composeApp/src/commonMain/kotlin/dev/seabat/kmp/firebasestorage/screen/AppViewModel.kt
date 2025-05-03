@@ -17,6 +17,10 @@ class AppViewModel(
     val notice: StateFlow<FirebaseStorageResult>
         get() = _notice
 
+    private val _message: MutableStateFlow<String> = MutableStateFlow("")
+    val message: StateFlow<String>
+        get() = _message
+
     fun fetchNotice() {
         viewModelScope.launch {
             fetchNoticeUseCase.invoke().collect { result ->

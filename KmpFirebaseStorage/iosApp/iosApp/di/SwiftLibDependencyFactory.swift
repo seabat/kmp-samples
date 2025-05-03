@@ -1,11 +1,13 @@
-import Foundation
 import ComposeApp
-import SwiftUI
-import UIKit
 
 class SwiftLibDependencyFactory: SwiftLibDependencyFactoryContract {
+
     static var shared = SwiftLibDependencyFactory()
 
+    func provideTestDataSource() -> any TestDataSourceContract {
+        return TestDataSource()
+    }
+    
     func provideFirebaseStorageDataSource() -> any FirebaseStorageDataSourceContract {
         return FirebaseStorageDataSource()
     }

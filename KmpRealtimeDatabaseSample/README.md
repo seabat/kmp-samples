@@ -1,4 +1,4 @@
-# Kmp Realtime Database Sample
+# KMP Realtime Database Sample
 
 ### Technology Stack
 
