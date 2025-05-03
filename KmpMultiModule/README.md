@@ -1,4 +1,4 @@
-# Kmp Multi Module
+# KMP Multi Module
 
 ### Technology Stack
 

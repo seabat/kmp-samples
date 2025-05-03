@@ -5,7 +5,7 @@ import dev.seabat.kmp.firebasestorage.repository.AppCheckRepository
 class ActivateAppCheckUseCase(
     private val appCheckRepository: AppCheckRepository
 ) {
-    operator fun invoke() {
+    suspend operator fun invoke() {
         appCheckRepository.activate()
     }
 }

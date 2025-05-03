@@ -1,6 +1,6 @@
 # KMP AppSync Sample
 
-Kotlin Multiplatform (KMP) を使用した AWS AppSync のサンプルアプリケーションです。
+Kotlin Multiplatform (KMP) を使用した AWS AppSync のサンプルプログラム。
 
 ## 概要
 

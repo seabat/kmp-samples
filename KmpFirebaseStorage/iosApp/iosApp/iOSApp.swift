@@ -5,6 +5,7 @@ import FirebaseStorage
 
 @main
 struct iOSApp: App {
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
     var body: some Scene {
@@ -21,7 +22,10 @@ struct iOSApp: App {
                 )
             }
         )
-        getActivateAppCheckUseCase().invoke()
+        
+        Task.detached { // Runs on a background thread
+            try? await getActivateAppCheckUseCase().invoke()
+        }
     }
 }
 

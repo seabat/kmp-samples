@@ -11,8 +11,9 @@ import dev.seabat.kmp.firebasestorage.result.FirebaseAppCheckResult
 private const val TAG = "AppCheck"
 
 class FirebaseAppCheckDataSource : FirebaseAppCheckDataSourceContract {
-    override fun activate(callback: (FirebaseAppCheckResult) -> Unit) {
-        try {
+    override suspend fun activate(): FirebaseAppCheckResult {
+
+       return runCatching {
             val debug = DebugAppCheckProviderFactory.getInstance()
             FirebaseAppCheck.getInstance().installAppCheckProviderFactory(debug)
 
@@ -23,15 +24,16 @@ class FirebaseAppCheckDataSource : FirebaseAppCheckDataSourceContract {
                 .addOnFailureListener { e ->
                     Log.d(TAG, "Failed to get AppCheck token: ${e.message}")
                 }
-
-            callback(FirebaseAppCheckResult.Success)
-        } catch (e: Exception) {
-            Log.e(TAG, "Failed to activate AppCheck: ${e.message}", e)
-            callback(
+        }.fold(
+            onSuccess = {
+                FirebaseAppCheckResult.Success
+            },
+            onFailure = { e ->
+                Log.e(TAG, "Failed to activate AppCheck: ${e.message}", e)
                 FirebaseAppCheckResult.Error(
                     KmpFirebaseStorageError.AppCheckActivationFailure(e.message ?: "Failed to activate AppCheck")
                 )
-            )
-        }
+            }
+        )
     }
 }
