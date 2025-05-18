@@ -16,6 +16,11 @@ Kotlin Multiplatform の shared モジュールをマルチモジュール化し
 
 [KMP Multi Module の REAME へ](./KmpMultiModule/README.md)
 
+## KMP Multi Module With Submodule
+
+KMP Multi Module Sample リポジトリに KMP First Cursor リポジトリをサブモジュールとして組み込み、KMP Multi Module Sample の shared モジュールから KMP First Cursor の　shared モジュールを参照する。 
+
+[KMP Multi Module With Submodule の REAME へ](./KmpMultiModuleWithSubmodule/README.md)
 
 ## KMP Firebase Storage
 

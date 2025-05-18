@@ -1,0 +1,7 @@
+TEAM_ID=
+
+PRODUCT_NAME=KMP Multi Module with Submodule
+PRODUCT_BUNDLE_IDENTIFIER=dev.seabat.kmp.withsubmodule.KMPMultiModulewithSubmodule$(TEAM_ID)
+
+CURRENT_PROJECT_VERSION=1
+MARKETING_VERSION=1.0
