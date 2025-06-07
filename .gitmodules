@@ -1,0 +1,3 @@
+[submodule "KmpMultiModuleWithSubmodule/kmp-tutorial"]
+	path = KmpMultiModuleWithSubmodule/kmp-tutorial
+	url = https://github.com/seabat/kmp-tutorial.git

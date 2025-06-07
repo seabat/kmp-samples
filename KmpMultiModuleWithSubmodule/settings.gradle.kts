@@ -40,3 +40,7 @@ project(":shared:domain").projectDir = File("$rootDir/shared-domain")
 
 include(":shared:data")
 project(":shared:data").projectDir = File("$rootDir/shared-data")
+
+// KmpTutorial shared module
+include(":kmp-tutorial-shared")
+project(":kmp-tutorial-shared").projectDir = File("$rootDir/kmp-tutorial/KmpTutorial/shared")
