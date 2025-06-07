@@ -10,9 +10,8 @@ struct iOSApp: App {
     }
 
     init() {
-        // NOTE: KmpMultiModuleWithSubmodule プロジェクトの CommonModule.kt と
-        //       KmpTutorial プロジェクトの CommonModule.kt が被るので、iOS ビルドによって
-        //       前者は CommonModuleKt_ 、後者は CommonModuleKt という swift name になる。
+        // NOTE: KmpMultiModuleWithSubmodule プロジェクトと KmpTutorial プロジェクトで定義が被る場合は
+        //       ハイフンをどちらかの定義の語尾に付ける。
         CommonModuleKt_.doInitIosKoin()
     }
 }

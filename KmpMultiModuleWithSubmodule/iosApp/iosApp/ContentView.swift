@@ -41,7 +41,9 @@ extension ContentView {
     @MainActor
     class ViewModel: ObservableObject {
         let sharedViewModel: GreetingSharedViewModel
-        let loadRocketLaunchInfoUseCase: LoadRocketLaunchInfoUseCaseContract
+        // NOTE: KmpMultiModuleWithSubmodule プロジェクトと KmpTutorial プロジェクトで定義が被る場合は
+        //       ハイフンをどちらかの定義の語尾に付ける。
+        let loadRocketLaunchInfoUseCase: LoadRocketLaunchInfoUseCaseContract_
         let grepUseCase: GrepUseCaseContract
 
         @Published var rocketLaunchPhrase: String = ""
@@ -51,9 +53,8 @@ extension ContentView {
         private var didGrep = false
 
         init() {
-            // NOTE: KmpMultiModuleWithSubmodule プロジェクトの CommonModule.kt と
-            //       KmpTutorial プロジェクトの CommonModule.kt が被るので、iOS ビルドによって
-            //       前者は CommonModuleKt_ 、後者は CommonModuleKt という swift name になる。
+            // NOTE: KmpMultiModuleWithSubmodule プロジェクトと KmpTutorial プロジェクトで定義が被る場合は
+            //       ハイフンをどちらかの定義の語尾に付ける。
             sharedViewModel = KoinHelperKt_.getGreetingSharedViewModel()
             loadRocketLaunchInfoUseCase = KoinHelperKt_.getLoadRocketLaunchInfoUseCase()
             grepUseCase = KoinHelperKt_.getGrepUseCase()
