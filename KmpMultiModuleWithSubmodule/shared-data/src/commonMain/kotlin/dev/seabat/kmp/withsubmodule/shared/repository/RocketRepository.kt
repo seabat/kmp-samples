@@ -30,21 +30,21 @@ class RocketRepository : RocketRepositoryContract {
         val rockets: List<RocketLaunch> = try {
             httpClient.get("https://api.spacexdata.com/v4/launches").body()
         } catch (e: Exception) {
-            log("Caught exception: ${e.message}")
+            log("【Main】Caught exception: ${e.message}")
             throw e
         }
         val lastSuccessLaunch = rockets.last { it.launchSuccess == true }
         val date = Instant.parse(lastSuccessLaunch.launchDateUTC)
             .toLocalDateTime(TimeZone.currentSystemDefault())
-        log("getDateOfLastSuccessfulLaunch: year=${date.year}")
+        log("【Main】getDateOfLastSuccessfulLaunch: year=${date.year}")
         return "${date.month} ${date.dayOfMonth}, ${date.year}"
     }
 
     override suspend fun launchPhrase(): String =
         try {
-            "The last successful launch was on ${getDateOfLastSuccessfulLaunch()} 🚀"
+            "【Main】The last successful launch was on ${getDateOfLastSuccessfulLaunch()} 🚀"
         } catch (e: Exception) {
-            println("Exception during getting the date of the last successful launch $e")
+            println("【Main】Exception during getting the date of the last successful launch $e")
             "Error occurred"
         }
 }

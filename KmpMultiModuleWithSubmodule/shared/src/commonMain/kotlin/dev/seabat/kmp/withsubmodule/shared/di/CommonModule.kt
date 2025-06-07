@@ -1,9 +1,13 @@
 package dev.seabat.kmp.withsubmodule.shared.di
 
-import dev.seabat.kmp.tutorial.shared.di.useCaseModule as tutorialUseCaseModule
-import dev.seabat.kmp.tutorial.shared.di.viewModelModule as tutorialViewModelModule
-import dev.seabat.kmp.tutorial.shared.di.repositoryModule as tutorialRepositoryModule
-import dev.seabat.kmp.tutorial.shared.di.platformModule as tutorialPlatformModule
+import dev.seabat.kmp.tutorial.shared.di.useCaseModule as subUseCaseModule
+import dev.seabat.kmp.tutorial.shared.di.viewModelModule as subViewModelModule
+import dev.seabat.kmp.tutorial.shared.di.repositoryModule as subRepositoryModule
+import dev.seabat.kmp.tutorial.shared.di.platformModule as subPlatformModule
+import dev.seabat.kmp.withsubmodule.shared.di.useCaseModule as mainUseCaseModule
+import dev.seabat.kmp.withsubmodule.shared.di.viewModelModule as mainViewModelModule
+import dev.seabat.kmp.withsubmodule.shared.di.repositoryModule as mainRepositoryModule
+import dev.seabat.kmp.withsubmodule.shared.di.platformModule as mainPlatformModule
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
 
@@ -11,20 +15,28 @@ import org.koin.dsl.KoinAppDeclaration
 fun initAndroidKoin(appDeclaration: KoinAppDeclaration) = startKoin {
     appDeclaration()
     modules(
-        tutorialUseCaseModule,
-        tutorialViewModelModule,
-        tutorialRepositoryModule,
-        tutorialPlatformModule
+        mainUseCaseModule,
+        mainViewModelModule,
+        mainRepositoryModule,
+        mainPlatformModule,
+        subUseCaseModule,
+        subViewModelModule,
+        subRepositoryModule,
+        subPlatformModule
     )
 }
 
 // for Compose Preview
 fun initComposePreviewKoin() = startKoin {
     modules(
-        tutorialUseCaseModule,
-        tutorialViewModelModule,
-        tutorialRepositoryModule,
-        tutorialPlatformModule
+        mainUseCaseModule,
+        mainViewModelModule,
+        mainRepositoryModule,
+        mainPlatformModule,
+        subUseCaseModule,
+        subViewModelModule,
+        subRepositoryModule,
+        subPlatformModule
     )
 }
 
@@ -34,10 +46,14 @@ fun initComposePreviewKoin() = startKoin {
 fun initIosKoin() {
     startKoin {
         modules(
-            tutorialUseCaseModule,
-            tutorialViewModelModule,
-            tutorialRepositoryModule,
-            tutorialPlatformModule
+            mainUseCaseModule,
+            mainViewModelModule,
+            mainRepositoryModule,
+            mainPlatformModule,
+            subUseCaseModule,
+            subViewModelModule,
+            subRepositoryModule,
+            subPlatformModule
         )
     }
 }
