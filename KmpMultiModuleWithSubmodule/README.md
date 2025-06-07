@@ -1,5 +1,7 @@
 # KMP Multi Module With Submodule
 
+KMP Multi Module Sample リポジトリ内に KMP Tutorial リポジトリを Git サブモジュールとして配置し、KMP Multi Module Sample の shared モジュールから KMP Tutorial の shared モジュールを参照する。
+
 ### Technology Stack
 
 * フレームワーク
@@ -11,13 +13,18 @@
 
 ### 構成
 
-ViewModel 層、ドメイン層、データ層をそれぞれ Android、iOS の両 OS から利用できるモジュールに分割する。
+メインプロジェクトのリポジトリには Umbrella モジュール、ViewModel モジュール、ドメインモジュール、データモジュール、 Android 本体、iOS 本体を配置する。さらに GitSub サブモジュールとして [kmp-tutorial](https://github.com/seabat/kmp-tutorial)リポジトリを配置する。kmp-tutorial には shared モジュールが含まれている。
 
 <img src="docs/module.png" width="300">  
+<img src="docs/dependencies.png" width="300">    
 
-ポイントは Android、iOS の両 OS から依存するモジュールは一つだけに Umbrella モジュールを作ること。Umbrella モジュールを作る必要性については [ここ](https://santimattius.github.io/kmp-for-mobile-native-developers-book/#179504e6-f752-8099-8fa7-e8df8e7c661f)を参照されたい。
+KMP におけるマルチモジュール構成は Umbrella モジュールが適用されているので、 Gitサブモジュール内にある shared モジュールは Umbrella モジュールから参照されることになる。   
+  
+Umbrella モジュールをについては [ここ](https://santimattius.github.io/kmp-for-mobile-native-developers-book/#179504e6-f752-8099-8fa7-e8df8e7c661f)を参照されたい。
 
 ##### クラス図
+
+各 OS の UI 層からメインプロジェクトのモジュールとGitSub サブモジュール内のモジュールにアクセスする。
 
 <img src="docs/class_diagram.png" width="700px">
 
