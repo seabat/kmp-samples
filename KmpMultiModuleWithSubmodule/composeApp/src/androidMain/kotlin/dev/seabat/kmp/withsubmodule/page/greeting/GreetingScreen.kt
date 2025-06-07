@@ -23,7 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.seabat.kmp.withsubmodule.shared.di.initComposePreviewKoin
-import dev.seabat.kmp.withsubmodule.shared.viewmodel.GreetingSharedViewModel
+import dev.seabat.kmp.tutorial.shared.viewmodel.GreetingSharedViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)

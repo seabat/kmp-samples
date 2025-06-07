@@ -51,9 +51,12 @@ extension ContentView {
         private var didGrep = false
 
         init() {
-            sharedViewModel = KoinHelperKt.getGreetingSharedViewModel()
-            loadRocketLaunchInfoUseCase = KoinHelperKt.getLoadRocketLaunchInfoUseCase()
-            grepUseCase = KoinHelperKt.getGrepUseCase()
+            // NOTE: KmpMultiModuleWithSubmodule プロジェクトの CommonModule.kt と
+            //       KmpTutorial プロジェクトの CommonModule.kt が被るので、iOS ビルドによって
+            //       前者は CommonModuleKt_ 、後者は CommonModuleKt という swift name になる。
+            sharedViewModel = KoinHelperKt_.getGreetingSharedViewModel()
+            loadRocketLaunchInfoUseCase = KoinHelperKt_.getLoadRocketLaunchInfoUseCase()
+            grepUseCase = KoinHelperKt_.getGrepUseCase()
 
             sharedViewModel.observePhrases { phrases in
                 self.phrases = phrases

@@ -1,8 +1,8 @@
 package dev.seabat.kmp.withsubmodule.shared.di
 
-import dev.seabat.kmp.withsubmodule.shared.usecase.GrepUseCaseContract
-import dev.seabat.kmp.withsubmodule.shared.usecase.LoadRocketLaunchInfoUseCaseContract
-import dev.seabat.kmp.withsubmodule.shared.viewmodel.GreetingSharedViewModel
+import dev.seabat.kmp.tutorial.shared.usecase.GrepUseCaseContract
+import dev.seabat.kmp.tutorial.shared.usecase.LoadRocketLaunchInfoUseCaseContract
+import dev.seabat.kmp.tutorial.shared.viewmodel.GreetingSharedViewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

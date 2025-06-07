@@ -2,7 +2,7 @@ package dev.seabat.kmp.withsubmodule.page.grep
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.seabat.kmp.withsubmodule.shared.usecase.GrepUseCaseContract
+import dev.seabat.kmp.tutorial.shared.usecase.GrepUseCaseContract
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

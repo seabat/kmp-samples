@@ -2,7 +2,7 @@ package dev.seabat.kmp.withsubmodule.page.rocketlaunch
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.seabat.kmp.withsubmodule.shared.usecase.LoadRocketLaunchInfoUseCaseContract
+import dev.seabat.kmp.tutorial.shared.usecase.LoadRocketLaunchInfoUseCaseContract
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update

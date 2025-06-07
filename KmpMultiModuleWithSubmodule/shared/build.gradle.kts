@@ -28,6 +28,7 @@ kotlin {
                 // Accessible by the iOS app
                 export(project(":shared:viewmodel"))
                 export(project(":shared:domain"))
+                export(project(":kmp-tutorial-shared"))
             }
         }
     }
@@ -42,7 +43,7 @@ kotlin {
             implementation(project(":shared:data"))
 
             // KmpTutorial shared module
-            implementation(project(":kmp-tutorial-shared"))
+            api(project(":kmp-tutorial-shared"))
 
             // share モジュールのプログラムから参照するライブラリ
             implementation(libs.koin.core)
