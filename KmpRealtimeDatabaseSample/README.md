@@ -24,14 +24,11 @@
 
 ### 仕様
 
-アプリ初回起動時  
-<img src="docs/first.png" width = "300px">  
+セットアップ  
+<img src="docs/setup_sequence_1.png" width = "700px">  
 
-データ更新時  
-<img src="docs/updateData.png" width = "300px">  
-
-アプリ再起動時  
-<img src="docs/relaunch.png" width = "300px">  
+データ監視  
+<img src="docs/home_sequence_1.png" width = "330px">  
 
 
 #### Firebase Realtime Database アクセス実装 
